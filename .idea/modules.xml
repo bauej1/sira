@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/05_SIRA.iml" filepath="$PROJECT_DIR$/05_SIRA.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sira.iml" filepath="$PROJECT_DIR$/sira.iml" />
     </modules>
   </component>
 </project>
