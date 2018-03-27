@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/05_SIRA.iml" filepath="$PROJECT_DIR$/05_SIRA.iml" />
+      <module fileurl="file://C:\Users\Jan\Desktop\BFH-MedInf\Semester_4\LivingCase_I_Implantat_Workflow\Projekt\05_SIRA\sira\05_SIRA.iml" filepath="C:\Users\Jan\Desktop\BFH-MedInf\Semester_4\LivingCase_I_Implantat_Workflow\Projekt\05_SIRA\sira\05_SIRA.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Jan\Desktop\BFH-MedInf\Semester_4\LivingCase_I_Implantat_Workflow\Projekt\05_SIRA\sira\app\app.iml" filepath="C:\Users\Jan\Desktop\BFH-MedInf\Semester_4\LivingCase_I_Implantat_Workflow\Projekt\05_SIRA\sira\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/sira.iml" filepath="$PROJECT_DIR$/sira.iml" />
+      <module fileurl="file://C:\Users\Jan\Desktop\BFH-MedInf\Semester_4\LivingCase_I_Implantat_Workflow\Projekt\05_SIRA\sira\sira.iml" filepath="C:\Users\Jan\Desktop\BFH-MedInf\Semester_4\LivingCase_I_Implantat_Workflow\Projekt\05_SIRA\sira\sira.iml" />
     </modules>
   </component>
 </project>
