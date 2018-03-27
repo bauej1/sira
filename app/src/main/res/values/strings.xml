@@ -4,4 +4,8 @@
     <string name="language_eng">Please select your language</string>
     <string name="start_ger">Start in Deutsch</string>
     <string name="start_eng">Start in English</string>
+    <string name="chooseform_ger">Bitte wählen Sie das gewünschte Formular</string>
+    <string name="primärprothese">Primärprothese</string>
+    <string name="nachkontrolle">Nachkontrolle</string>
+    <string name="revision">Revision</string>
 </resources>
