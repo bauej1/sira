@@ -8,4 +8,5 @@
     <string name="primärprothese">Primärprothese</string>
     <string name="nachkontrolle">Nachkontrolle</string>
     <string name="revision">Revision</string>
+    <string name="choose_bodypart">Bitte wählen Sie das Körperteil</string>
 </resources>
