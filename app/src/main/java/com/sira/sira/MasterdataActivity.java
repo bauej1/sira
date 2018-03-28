@@ -1,9 +1,12 @@
 package com.sira.sira;
 
+import android.graphics.LinearGradient;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.widget.LinearLayout;
+
 import com.shuhart.stepview.StepView;
 
 /**
@@ -18,7 +21,7 @@ public class MasterDataActivity extends AppCompatActivity implements GestureDete
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.master_layout);
+        setContentView(R.layout.masterdata);
 
         gDetector = new GestureDetector(this);
         stepView = findViewById(R.id.step_view);

@@ -16,7 +16,9 @@ public class BodyMainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bodypart_main);
+
         ImageButton hip_button = (ImageButton)findViewById(R.id.hip_button);
+
         hip_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -25,6 +27,7 @@ public class BodyMainActivity extends AppCompatActivity{
         });
 
         ImageButton knee_button = (ImageButton)findViewById(R.id.knee_button);
+
         knee_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

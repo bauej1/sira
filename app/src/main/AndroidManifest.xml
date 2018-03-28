@@ -23,6 +23,9 @@
         <activity android:name=".BodyDetailActivity"
             android:screenOrientation="landscape">
         </activity>
+        <activity android:name=".MasterDataActivity"
+            android:screenOrientation="landscape">
+        </activity>
     </application>
 
 </manifest>
