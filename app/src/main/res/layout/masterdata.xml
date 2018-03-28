@@ -9,26 +9,52 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="bottom">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
 
-        <com.shuhart.stepview.StepView
-            android:id="@+id/step_view"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:padding="16dp"
-            app:sv_animationType="All"
-            app:sv_doneCircleColor="@color/white"
-            app:sv_doneStepLineColor="@color/white"
-            app:sv_doneStepMarkColor="@color/colorAccent"
-            app:sv_nextStepLineColor="@color/white"
-            app:sv_selectedCircleColor="@color/white"
-            app:sv_selectedStepNumberColor="@color/colorAccent"
-            app:sv_selectedTextColor="@color/white"
-            app:sv_stepPadding="12dp"
-            app:sv_steps="@array/steps" />
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/stammdaten"
+            android:textColor="@color/colorAccent"
+            android:textSize="35dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/patnr"
+                android:textSize="18dp" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_marginLeft="10dp"/>
+
+
+
+        </LinearLayout>
     </LinearLayout>
+
+
+
 
 </LinearLayout>
