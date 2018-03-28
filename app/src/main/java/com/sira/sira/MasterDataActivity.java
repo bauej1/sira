@@ -27,6 +27,7 @@ public class MasterDataActivity extends AppCompatActivity implements GestureDete
         stepView = findViewById(R.id.step_view);
     }
 
+
     @Override
     public boolean onDown(MotionEvent motionEvent) {
         return false;

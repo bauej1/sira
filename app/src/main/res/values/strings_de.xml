@@ -9,4 +9,14 @@
     <string name="choose_bodypart">Bitte wählen Sie das Körperteil</string>
     <string name="stammdaten">Stammdaten</string>
     <string name="patnr">Patientennummer</string>
+    <string name="vorname">Vorname</string>
+    <string name="nachname">Nachname</string>
+    <string name="geschlecht">Geschlecht</string>
+    <string name="weiblich">weiblich</string>
+    <string name="männlich">männlich</string>
+    <string name="geburtstag">Geburtstag</string>
+    <string name="ahv">AHV-Nummer</string>
+    <string name="geburtsnachname">Geburtsnachname</string>
+    <string name="geburtsort">Geburtsort</string>
+    <string name="geburtsland">Geburtsland</string>
 </resources>
