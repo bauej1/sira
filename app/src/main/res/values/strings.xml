@@ -9,4 +9,6 @@
     <string name="nachkontrolle">Nachkontrolle</string>
     <string name="revision">Revision</string>
     <string name="choose_bodypart">Bitte wählen Sie das Körperteil</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
 </resources>
