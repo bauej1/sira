@@ -1,9 +1,12 @@
 package com.sira.sira;
 
+import android.graphics.LinearGradient;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.widget.LinearLayout;
+
 import com.shuhart.stepview.StepView;
 
 /**
