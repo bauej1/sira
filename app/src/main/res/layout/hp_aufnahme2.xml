@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/masterdataView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/aufnahme"
+            android:textColor="@color/colorAccent"
+            android:textSize="35dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/diagnose"
+                        android:textSize="25dp"
+                        android:fontFamily="sans-serif-light"/>
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="30dp">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/arthrose"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/entzLeiden"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hüftdysplasie"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fraktur"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/osteonekrose"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/postPerthes"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/andereDiagnose"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="100dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/vorherigeOP"
+                        android:textSize="25dp"
+                        android:fontFamily="sans-serif-light"/>
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="30dp">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/keine"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/osteoFemur"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/osteoBecken"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/osteosAcetabulum"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/osteosFemur"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hüftarthroskopie"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/arthrodese"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/andereOP"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/textDark"/>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="100dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/opDatum"
+                        android:textSize="25dp"
+                        android:fontFamily="sans-serif-light"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/master_layout"/>
+
+</LinearLayout>

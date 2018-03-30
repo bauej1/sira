@@ -22,4 +22,44 @@
     <string name="seite">Bitte wählen Sie die betroffene Seite des Patienten</string>
     <string name="links">Links</string>
     <string name="rechts">Rechts</string>
+    <string name="aufnahme">Aufnahme</string>
+    <string name="grösse">Grösse</string>
+    <string name="gewicht">Gewicht</string>
+    <string name="grösse_gewicht">Grösse/Gewicht</string>
+    <string name="unbekannt">Unbekannt/nicht dokumentiert</string>
+    <string name="charnley">Charnley-Klasse</string>
+    <string name="a">
+        <font size="20">A</font>
+        <font size="15">\t\t\tunilateral erkrankt, Gegenseite gesund</font>
+    </string>
+    <string name="b">
+        <font size="20">B </font>
+        <font size="15">\t\t\tbilateral erkrankt</font>
+    </string>
+    <string name="bb">
+        <font size="20">BB</font>
+        <font size="15">\t\tbilateral erkrankt, Gegenseite Prothese</font>
+    </string>
+    <string name="c">
+        <font size="20">C</font>
+        <font size="15">\t\t\tandere mobilitätseinschränkende Erkrankung(en)</font>
+    </string>
+    <string name="diagnose">Diagnose</string>
+    <string name="arthrose">Arthrose</string>
+    <string name="entzLeiden">entzündliches Leiden</string>
+    <string name="hüftdysplasie">Hüftdysplasie</string>
+    <string name="fraktur">Fraktur</string>
+    <string name="osteonekrose">Osteonekrose</string>
+    <string name="postPerthes">post Perthes</string>
+    <string name="andereDiagnose">andere Diagnose</string>
+    <string name="vorherigeOP">Vorherige Operationen</string>
+    <string name="keine">keine</string>
+    <string name="osteoFemur">Osteotomie Femur</string>
+    <string name="osteoBecken">Osteotomie Becken</string>
+    <string name="osteosAcetabulum">Osteosynthese Acetabulum</string>
+    <string name="osteosFemur">Osteosynthese Femur</string>
+    <string name="hüftarthroskopie">Hüftarthroskopie</string>
+    <string name="arthrodese">Arthrodese</string>
+    <string name="andereOP">andere vorherige Operation</string>
+    <string name="opDatum">Operationsdatum</string>
 </resources>
