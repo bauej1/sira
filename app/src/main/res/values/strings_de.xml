@@ -19,4 +19,7 @@
     <string name="geburtsnachname">Geburtsnachname</string>
     <string name="geburtsort">Geburtsort</string>
     <string name="geburtsland">Geburtsland</string>
+    <string name="seite">Bitte wählen Sie die betroffene Seite des Patienten</string>
+    <string name="links">Links</string>
+    <string name="rechts">Rechts</string>
 </resources>

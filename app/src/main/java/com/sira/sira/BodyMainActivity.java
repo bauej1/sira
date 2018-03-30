@@ -22,7 +22,7 @@ public class BodyMainActivity extends AppCompatActivity{
         hip_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(BodyMainActivity.this, BodyDetailActivity.class));
+                startActivity(new Intent(BodyMainActivity.this, BodySideActivity.class));
             }
         });
 
@@ -31,7 +31,7 @@ public class BodyMainActivity extends AppCompatActivity{
         knee_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(BodyMainActivity.this, BodyDetailActivity.class));
+                startActivity(new Intent(BodyMainActivity.this, BodySideActivity.class));
             }
         });
     }
