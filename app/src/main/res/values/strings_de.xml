@@ -62,4 +62,23 @@
     <string name="arthrodese">Arthrodese</string>
     <string name="andereOP">andere vorherige Operation</string>
     <string name="opDatum">Operationsdatum</string>
+    <string name="primGonarthrose">primäre Gonarthrose</string>
+    <string name="primuniGonarthrose">primäre unikompartimentäre Gonarthrose</string>
+    <string name="sekGonarthroseGen">sekundäre Gonarthrose entzündliche Genese</string>
+    <string name="sekGonarthroseFra">sekundäre Gonarthrose nach Fraktur</string>
+    <string name="sekGonarthroseBand">sekundäre Gonarthrose nach Bandverletzung</string>
+    <string name="sekGonarthroseInf">sekundäre Gonarthrose nach Infekt</string>
+    <string name="knieOsteoFE">knienahe Osteotomie FE</string>
+    <string name="knieOsteoTI">knienahe Osteotomie TI</string>
+    <string name="knieOsteosFE">knienahe Osteosynthese FE</string>
+    <string name="knieOsteosTI">knienahe Osteosynthese TI</string>
+    <string name="kniearthroskopie">Kniearthroskopie</string>
+    <string name="meniskektomie">Meniskektomie</string>
+    <string name="synovektomie">Synovektomie</string>
+    <string name="vkb_rekonstr">VKB-Rekonstruktion</string>
+    <string name="opPatella">OP zur Patellastabilisierung</string>
+    <string name="opInfekt">OP zur Infektbehandlung</string>
+    <string name="tumorOP">Tumor-OP</string>
+    <string name="andereOPs">andere Operation(en)</string>
+    <string name="anzOP">Anzahl vorherige Operationen</string>
 </resources>
