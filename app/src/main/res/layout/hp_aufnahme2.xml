@@ -136,7 +136,7 @@
                         android:orientation="vertical"
                         android:layout_marginTop="30dp">
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/keine"
@@ -144,7 +144,7 @@
                             android:textSize="20dp"
                             android:textColor="@color/textDark"/>
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/osteoFemur"
@@ -152,7 +152,7 @@
                             android:textSize="20dp"
                             android:textColor="@color/textDark"/>
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/osteoBecken"
@@ -160,7 +160,7 @@
                             android:textSize="20dp"
                             android:textColor="@color/textDark"/>
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/osteosAcetabulum"
@@ -168,7 +168,7 @@
                             android:textSize="20dp"
                             android:textColor="@color/textDark"/>
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/osteosFemur"
@@ -176,7 +176,7 @@
                             android:textSize="20dp"
                             android:textColor="@color/textDark"/>
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/hüftarthroskopie"
@@ -184,7 +184,7 @@
                             android:textSize="20dp"
                             android:textColor="@color/textDark"/>
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/arthrodese"
@@ -192,7 +192,7 @@
                             android:textSize="20dp"
                             android:textColor="@color/textDark"/>
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/andereOP"
