@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="sans-serif-light"
-                android:text="@string/aufnahme"
+                android:text="@string/op"
                 android:textColor="@color/colorAccent"
                 android:textSize="35dp" />
 
@@ -64,7 +64,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/diagnose"
+                        android:text="@string/fixationKomponenten"
                         android:textSize="25dp"
                         android:fontFamily="sans-serif-light"/>
 
@@ -77,53 +77,54 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/arthrose"
+                            android:text="@string/alleZementiert"
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/entzLeiden"
+                            android:text="@string/alleUnzementiert"
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/hüftdysplasie"
+                            android:text="@string/hybrid"
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/fraktur"
+                            android:text="@string/umgekehrtHybrid"
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/osteonekrose"
+                            android:text="@string/dachschaleZem"
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/postPerthes"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
-
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/andereDiagnose"
+                            android:text="@string/dachschaleUnzem"
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
                     </RadioGroup>
-
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/zementiertechnik_entfällt"
+                        android:layout_marginLeft="33dp"
+                        android:layout_marginTop="-10dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/textDark"
+                        android:textStyle="italic"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -135,7 +136,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/vorherigeOP"
+                        android:text="@string/zusatzeingriffe"
                         android:textSize="25dp"
                         android:fontFamily="sans-serif-light"/>
 
@@ -145,118 +146,47 @@
                         android:orientation="vertical"
                         android:layout_marginTop="30dp">
 
-                        <CheckBox
+                        <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/keine"
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/osteoFemur"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/osteoBecken"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/osteosAcetabulum"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/osteosFemur"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hüftarthroskopie"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/arthrodese"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
-
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/andereOP"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
-                    </RadioGroup>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="100dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/allgemeinzustand"
-                        android:textSize="25dp"
-                        android:fontFamily="sans-serif-light"/>
-
-                    <RadioGroup
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp">
-
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/asa1"
+                            android:text="@string/knöchPfannen"
+                            android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/asa2"
+                            android:text="@string/zentralKnochen"
+                            android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/asa3"
+                            android:text="@string/trochanterosteotomie"
+                            android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/asa4"
+                            android:text="@string/proxfemurosteotomie"
+                            android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/asa5"
+                            android:text="@string/andereZusatzeingr"
+                            android:textSize="18dp"
                             android:textColor="@color/textDark"/>
-
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/unbekannt"
-                            android:textColor="@color/textDark"
-                            android:textSize="18dp"/>
                     </RadioGroup>
                 </LinearLayout>
             </LinearLayout>
