@@ -116,6 +116,7 @@
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
                     </RadioGroup>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -146,42 +147,42 @@
                         android:orientation="vertical"
                         android:layout_marginTop="30dp">
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/keine"
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/knöchPfannen"
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/zentralKnochen"
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/trochanterosteotomie"
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/proxfemurosteotomie"
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
-                        <RadioButton
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/andereZusatzeingr"
