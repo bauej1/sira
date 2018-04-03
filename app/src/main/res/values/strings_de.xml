@@ -82,4 +82,25 @@
     <string name="andereOPs">andere Operation(en)</string>
     <string name="anzOP">Anzahl vorherige Operationen</string>
     <string name="hüfte_prim">Hüfte Primärprothese</string>
+    <string name="allgemeinzustand">Allgemeinzustand</string>
+    <string name="asa1">
+        <font size="18">ASA1</font>
+        <font size="15">\tkeine Probleme</font>
+    </string>
+    <string name="asa2">
+        <font size="18">ASA2</font>
+        <font size="15">\tgeringe Beeinträchtigung</font>
+    </string>
+    <string name="asa3">
+        <font size="18">ASA3</font>
+        <font size="15">\tstarke Beeinträchtigung</font>
+    </string>
+    <string name="asa4">
+        <font size="18">ASA4</font>
+        <font size="15">\tlebensbedrohlich</font>
+    </string>
+    <string name="asa5">
+        <font size="18">ASA5</font>
+        <font size="15">\tmoribund</font>
+    </string>
 </resources>

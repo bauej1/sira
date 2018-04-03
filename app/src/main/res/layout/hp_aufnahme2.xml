@@ -212,9 +212,52 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/opDatum"
+                        android:text="@string/allgemeinzustand"
                         android:textSize="25dp"
                         android:fontFamily="sans-serif-light"/>
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/asa1"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/asa2"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/asa3"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/asa4"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/asa5"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/unbekannt"
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp"/>
+                    </RadioGroup>
 
                 </LinearLayout>
             </LinearLayout>
