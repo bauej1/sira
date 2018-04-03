@@ -22,7 +22,12 @@ public class BodyDetailActivity extends AppCompatActivity{
         primaryProthesis.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(BodyDetailActivity.this, MasterDataActivity.class));
+                Intent intBefore = getIntent();
+                Bundle bundle = intBefore.getExtras();
+                Intent implantType = new Intent(BodyDetailActivity.this, MasterDataActivity.class);
+                bundle.putString("implantType", "primary");
+                implantType.putExtras(bundle);
+                startActivity(implantType);
             }
         });
     }

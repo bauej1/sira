@@ -22,7 +22,12 @@ public class BodySideActivity extends AppCompatActivity {
         left_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(BodySideActivity.this, BodyDetailActivity.class));
+                Intent intBefore = getIntent();
+                Bundle bundle = intBefore.getExtras();
+                Intent leftIntent = new Intent(BodySideActivity.this, BodyDetailActivity.class);
+                bundle.putString("bodyside", "l");
+                leftIntent.putExtras(bundle);
+                startActivity(leftIntent);
             }
         });
 
@@ -31,7 +36,12 @@ public class BodySideActivity extends AppCompatActivity {
         right_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(BodySideActivity.this, BodyDetailActivity.class));
+                Intent intBefore = getIntent();
+                Bundle bundle = intBefore.getExtras();
+                Intent leftIntent = new Intent(BodySideActivity.this, BodyDetailActivity.class);
+                bundle.putString("bodyside", "r");
+                leftIntent.putExtras(bundle);
+                startActivity(leftIntent);
             }
         });
     }

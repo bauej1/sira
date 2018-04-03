@@ -14,9 +14,8 @@
         <activity android:name=".LanguageActivity"
             android:screenOrientation="landscape">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity android:name=".BodyMainActivity"
@@ -29,6 +28,9 @@
             android:screenOrientation="landscape">
         </activity>
         <activity android:name=".MasterDataActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity android:name=".HpActivity"
             android:screenOrientation="landscape">
         </activity>
     </application>

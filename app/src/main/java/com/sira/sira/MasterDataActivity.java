@@ -1,5 +1,6 @@
 package com.sira.sira;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -26,11 +27,16 @@ public class MasterDataActivity extends AppCompatActivity implements GestureDete
     private GestureDetector gDetector;
     private StepView stepView;
     private Patient patient;
+    private String bodyPart;
+    private String bodySide;
+    private String implantType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.masterdata);
+
+        getIntentBundle(getIntent());
 
         gDetector = new GestureDetector(this);
         stepView = findViewById(R.id.step_view);
@@ -45,6 +51,18 @@ public class MasterDataActivity extends AppCompatActivity implements GestureDete
                 return false;
             }
         });
+    }
+
+    /**
+     * This method gets all the bundle extras from the intent
+     *
+     * @param intent - the intent from which this actvitiy is called
+     */
+    private void getIntentBundle(Intent intent){
+        Bundle formInfo = intent.getExtras();
+        bodySide = formInfo.getString("bodyside");
+        bodyPart = formInfo.getString("bodypart");
+        implantType = formInfo.getString("implantType");
     }
 
     /**
@@ -149,6 +167,11 @@ public class MasterDataActivity extends AppCompatActivity implements GestureDete
         if (currentStep < stepView.getStepCount() - 1) {
             currentStep++;
             stepView.go(currentStep, true);
+
+            if(bodyPart.equals("h")){
+                startActivity(new Intent(MasterDataActivity.this, HpActivity.class));
+            }
+
         } else {
             stepView.done(true);
         }
