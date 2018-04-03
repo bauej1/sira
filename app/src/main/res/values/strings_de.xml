@@ -81,4 +81,5 @@
     <string name="tumorOP">Tumor-OP</string>
     <string name="andereOPs">andere Operation(en)</string>
     <string name="anzOP">Anzahl vorherige Operationen</string>
+    <string name="hüfte_prim">Hüfte Primärprothese</string>
 </resources>
