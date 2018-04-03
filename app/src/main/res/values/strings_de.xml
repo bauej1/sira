@@ -137,4 +137,6 @@
     <string name="trochanterosteotomie">Trochanterosteotomie</string>
     <string name="proxfemurosteotomie">proximale Femurosteotomie</string>
     <string name="andereZusatzeingr">andere Zusatzeingriffe</string>
+    <string name="operateur">Operateur</string>
+    <string name="assistent">Assistent</string>
 </resources>
