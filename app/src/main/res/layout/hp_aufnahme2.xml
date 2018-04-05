@@ -75,6 +75,7 @@
                         android:layout_marginTop="30dp">
 
                         <RadioButton
+                            android:id="@+id/hp_rb_diag_arthrose"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/arthrose"
@@ -82,6 +83,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_diag_entzLeiden"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/entzLeiden"
@@ -89,6 +91,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_diag_huftdysplasie"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/hüftdysplasie"
@@ -96,6 +99,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_diag_fraktur"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/fraktur"
@@ -103,6 +107,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_diag_osteonekrose"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/osteonekrose"
@@ -110,6 +115,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_diag_postperthes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/postPerthes"
@@ -117,6 +123,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_diag_andDiag"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/andereDiagnose"
@@ -146,6 +153,7 @@
                         android:layout_marginTop="30dp">
 
                         <CheckBox
+                            android:id="@+id/hp_cb_vorhOP_keine"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/keine"
@@ -153,6 +161,7 @@
                             android:textColor="@color/textDark"/>
 
                         <CheckBox
+                            android:id="@+id/hp_cb_vorhOP_ostFem"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/osteoFemur"
@@ -160,6 +169,7 @@
                             android:textColor="@color/textDark"/>
 
                         <CheckBox
+                            android:id="@+id/hp_cb_vorhOP_ostBeck"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/osteoBecken"
@@ -167,6 +177,7 @@
                             android:textColor="@color/textDark"/>
 
                         <CheckBox
+                            android:id="@+id/hp_cb_vorhOP_ostsAcet"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/osteosAcetabulum"
@@ -174,6 +185,7 @@
                             android:textColor="@color/textDark"/>
 
                         <CheckBox
+                            android:id="@+id/hp_cb_vorhOP_ostsFem"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/osteosFemur"
@@ -181,6 +193,7 @@
                             android:textColor="@color/textDark"/>
 
                         <CheckBox
+                            android:id="@+id/hp_cb_vorhOP_huftarthro"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/hüftarthroskopie"
@@ -188,6 +201,7 @@
                             android:textColor="@color/textDark"/>
 
                         <CheckBox
+                            android:id="@+id/hp_cb_vorhOP_arthrodese"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/arthrodese"
@@ -195,6 +209,7 @@
                             android:textColor="@color/textDark"/>
 
                         <CheckBox
+                            android:id="@+id/hp_cb_vorhOP_andOP"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/andereOP"
@@ -222,36 +237,42 @@
                         android:layout_marginTop="30dp">
 
                         <RadioButton
+                            android:id="@+id/hp_rb_allg_asa1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/asa1"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_allg_asa2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/asa2"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_allg_asa3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/asa3"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_allg_asa4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/asa4"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_allg_asa5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/asa5"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_allg_unb"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/unbekannt"

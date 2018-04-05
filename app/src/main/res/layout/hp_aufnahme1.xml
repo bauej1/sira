@@ -98,7 +98,7 @@
                     android:layout_marginTop="25dp">
 
                     <EditText
-                        android:id="@+id/grösse"
+                        android:id="@+id/hp_et_height"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
@@ -106,7 +106,7 @@
                         android:imeOptions="actionDone"/>
 
                     <EditText
-                        android:id="@+id/gewicht"
+                        android:id="@+id/hp_et_weight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
@@ -114,7 +114,7 @@
                         android:layout_marginTop="13dp"/>
 
                     <CheckBox
-                        android:id="@+id/grösse_gewicht"
+                        android:id="@+id/hp_et_height_weight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/unbekannt"
@@ -128,6 +128,7 @@
                         android:layout_marginTop="25dp">
 
                         <RadioButton
+                            android:id="@+id/hp_rb_charnley_a"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/a"
@@ -135,6 +136,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_charnley_b"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/b"
@@ -142,6 +144,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_charnley_bb"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/bb"
@@ -149,6 +152,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/rb_charnley_c"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/c"
@@ -156,6 +160,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_charnley_unknown"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/unbekannt"

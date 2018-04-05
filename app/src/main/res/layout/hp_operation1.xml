@@ -75,6 +75,7 @@
                         android:layout_marginTop="30dp">
 
                         <RadioButton
+                            android:id="@+id/hp_rb_eingr_totHuftprot"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/totaleHüftprot"
@@ -82,6 +83,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_eingr_kopfprot"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/kopfprothese"
@@ -89,6 +91,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_eingr_bipProt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/bipProthese"
@@ -96,6 +99,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_eingr_komplOberfl"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/komplOberflächenersatz"
@@ -103,6 +107,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_eingr_femOberfl"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/femOberflächenersatz"
@@ -110,6 +115,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_eingr_andEingr"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/andererEingriff"
@@ -138,6 +144,7 @@
                         android:layout_marginTop="30dp">
 
                         <RadioButton
+                            android:id="@+id/hp_rb_zugang_anterior"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/anterior"
@@ -145,6 +152,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_zugang_anterolateral"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/anterolateral"
@@ -152,6 +160,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_zugang_lateral"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/lateral"
@@ -159,6 +168,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_zugang_posterior"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/posterior"
@@ -166,6 +176,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_zugang_transfemoral"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/transfemoral"
@@ -173,6 +184,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_zugang_andZugang"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/andererZugang"
@@ -200,6 +212,7 @@
                         android:layout_marginTop="30dp">
 
                         <RadioButton
+                            android:id="@+id/hp_rb_lagerung_ruckNormal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/rückenl_normal"
@@ -207,13 +220,15 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_lagerung_ruckExten"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/rückenl_normal"
+                            android:text="@string/rückenl_extension"
                             android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_lagerung_seite"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/seitenl"
@@ -221,6 +236,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_lagerung_andLagerung"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/andereLagerung"

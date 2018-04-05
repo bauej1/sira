@@ -139,4 +139,14 @@
     <string name="andereZusatzeingr">andere Zusatzeingriffe</string>
     <string name="operateur">Operateur</string>
     <string name="assistent">Assistent</string>
+    <string name="zementiertechnik">Zementiertechnik</string>
+    <string name="generation1">erste Generation</string>
+    <string name="generation2">zweite Generation</string>
+    <string name="generation3">dritte Generation</string>
+    <string name="zementiertechnik1">Erstgeneration Zementiertechnik:</string>
+    <string name="zementiertechnik2">Zweitgeneration Zementiertechnik:</string>
+    <string name="zementiertechnik3">Drittgeneration Zementiertechnik:</string>
+    <string name="zementiertechnik1_beschr">Manuelle Zementapplikation, Handanrühren, keine Markraumsperre, keine Zementverdichtung, beschränkte Auswahl an Komponentengeometrien und -grössen.</string>
+    <string name="zementiertechnik2_beschr">Makraumsperre, Lavage und Trocknung der Spongosia, retrograde Zementapplikation (mit Hilfsgerät), multiple Komponentengeometrien und -grössen.</string>
+    <string name="zementiertechnik3_beschr">Zusätzlich zur Zweitgeneration: Vakuum-Zementanmischung, Porositätsreduktion des Zementes, Verdichtung des Zementmantels nach Protheseninsertion, Schaftzentralisierung im Zementmantel.</string>
 </resources>

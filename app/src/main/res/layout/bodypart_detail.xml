@@ -29,7 +29,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/primaryProthesis"
+            android:id="@+id/button_primaryProthesis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/circle"
@@ -39,7 +39,7 @@
             android:layout_marginRight="30dp"/>
 
         <Button
-            android:id="@+id/followUp"
+            android:id="@+id/button_followUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/circle"
@@ -49,7 +49,7 @@
             android:layout_marginRight="30dp"/>
 
         <Button
-            android:id="@+id/revision"
+            android:id="@+id/button_revision"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/circle"
