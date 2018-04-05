@@ -75,6 +75,7 @@
                         android:layout_marginTop="30dp">
 
                         <RadioButton
+                            android:id="@+id/hp_rb_fixation_alleZem"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/alleZementiert"
@@ -82,6 +83,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_fixation_alleUnzem"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/alleUnzementiert"
@@ -89,6 +91,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_fixation_hybrid"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/hybrid"
@@ -96,6 +99,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_fixation_umgekHybrid"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/umgekehrtHybrid"
@@ -103,6 +107,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_fixation_dachschFEzem"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/dachschaleZem"
@@ -110,6 +115,7 @@
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
+                            android:id="@+id/hp_rb_fixation_dachschFEunzem"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/dachschaleUnzem"
@@ -148,6 +154,7 @@
                         android:layout_marginTop="30dp">
 
                         <CheckBox
+                            android:id="@+id/hp_cb_zusatzeingr_keine"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/keine"
@@ -155,6 +162,7 @@
                             android:textColor="@color/textDark"/>
 
                         <CheckBox
+                            android:id="@+id/hp_cb_zusatzeingr_knöchPfannen"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/knöchPfannen"
@@ -162,6 +170,7 @@
                             android:textColor="@color/textDark"/>
 
                         <CheckBox
+                            android:id="@+id/hp_cb_zusatzeingr_zentrKnoch"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/zentralKnochen"
@@ -169,6 +178,7 @@
                             android:textColor="@color/textDark"/>
 
                         <CheckBox
+                            android:id="@+id/hp_cb_zusatzeingr_trochanteros"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/trochanterosteotomie"
@@ -176,6 +186,7 @@
                             android:textColor="@color/textDark"/>
 
                         <CheckBox
+                            android:id="@+id/hp_cb_zusatzeingr_proxFemur"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/proxfemurosteotomie"
@@ -183,6 +194,7 @@
                             android:textColor="@color/textDark"/>
 
                         <CheckBox
+                            android:id="@+id/hp_cb_zusatzeingr_andere"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/andereZusatzeingr"
