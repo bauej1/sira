@@ -17,6 +17,7 @@ public class LanguageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 startActivity(new Intent(LanguageActivity.this, BodyMainActivity.class));
+                finish();
             }
         });
     }

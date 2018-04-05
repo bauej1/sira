@@ -28,6 +28,7 @@ public class BodySideActivity extends AppCompatActivity {
                 bundle.putString("bodyside", "l");
                 leftIntent.putExtras(bundle);
                 startActivity(leftIntent);
+                finish();
             }
         });
 
@@ -42,6 +43,7 @@ public class BodySideActivity extends AppCompatActivity {
                 bundle.putString("bodyside", "r");
                 leftIntent.putExtras(bundle);
                 startActivity(leftIntent);
+                finish();
             }
         });
     }

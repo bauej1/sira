@@ -40,6 +40,7 @@ public class BodyMainActivity extends AppCompatActivity{
                 bundle.putString("bodypart", "k");
                 hipIntent.putExtras(bundle);
                 startActivity(hipIntent);
+                finish();
             }
         });
     }

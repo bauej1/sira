@@ -28,6 +28,7 @@ public class BodyDetailActivity extends AppCompatActivity{
                 bundle.putString("implantType", "primary");
                 implantType.putExtras(bundle);
                 startActivity(implantType);
+                finish();
             }
         });
     }

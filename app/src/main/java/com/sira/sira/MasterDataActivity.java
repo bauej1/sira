@@ -1,6 +1,9 @@
 package com.sira.sira;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -8,15 +11,24 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
 import com.opencsv.CSVReader;
 import com.shuhart.stepview.StepView;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Calendar;
 
 /**
  * Created by Jan on 28/03/2018.
@@ -30,6 +42,8 @@ public class MasterDataActivity extends AppCompatActivity implements GestureDete
     private String bodyPart;
     private String bodySide;
     private String implantType;
+    private EditText date;
+    private DatePickerDialog picker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +59,30 @@ public class MasterDataActivity extends AppCompatActivity implements GestureDete
         patId.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                if(i == EditorInfo.IME_ACTION_DONE){
+                if (i == EditorInfo.IME_ACTION_DONE) {
                     getPatientData(patId.getText().toString());
                 }
                 return false;
+            }
+        });
+
+        date = findViewById(R.id.birthdate);
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar cldr = Calendar.getInstance();
+                int day = cldr.get(Calendar.DAY_OF_MONTH);
+                int month = cldr.get(Calendar.MONTH);
+                int year = cldr.get(Calendar.YEAR);
+                picker = new DatePickerDialog(MasterDataActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                date.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                            }
+                        }, year, month, day);
+
+                picker.show();
             }
         });
     }
@@ -80,6 +114,21 @@ public class MasterDataActivity extends AppCompatActivity implements GestureDete
 
         TextView birthPlace = (TextView) findViewById(R.id.geburtsort);
         birthPlace.setText(patient.getBirthPlace());
+
+        TextView birthName = (TextView) findViewById(R.id.geburtsname);
+        birthName.setText(patient.getBirthName());
+
+        TextView birthCountry = (TextView) findViewById(R.id.geburtsland);
+        birthCountry.setText(patient.getBirthCountry());
+
+        RadioButton male = findViewById(R.id.male);
+        RadioButton female = findViewById(R.id.female);
+
+        if(patient.getGender() == 'm'){
+            male.setChecked(true);
+        } else {
+            female.setChecked(true);
+        }
     }
 
     /**
@@ -167,11 +216,18 @@ public class MasterDataActivity extends AppCompatActivity implements GestureDete
         if (currentStep < stepView.getStepCount() - 1) {
             currentStep++;
             stepView.go(currentStep, true);
-
             if(bodyPart.equals("h")){
-                startActivity(new Intent(MasterDataActivity.this, HpActivity.class));
+                /**
+                 * This construct needs to be moved in a public method file.. That's not a really beautiful solution.
+                 * It's needed again and again..
+                 * JABA
+                 */
+                Intent intent = new Intent(MasterDataActivity.this, HpActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("currentStep", currentStep);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
-
         } else {
             stepView.done(true);
         }

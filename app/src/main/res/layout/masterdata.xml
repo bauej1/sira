@@ -98,6 +98,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -120,24 +122,33 @@
                         android:layout_marginTop="13dp"/>
 
                     <RadioGroup
+                            android:id="@+id/gender"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:layout_marginTop="25dp">
                         <RadioButton
-                            android:id="@+id/weiblich"
+                            android:id="@+id/female"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/weiblich"
                             android:textSize="18dp"/>
 
                         <RadioButton
-                            android:id="@+id/männlich"
+                            android:id="@+id/male"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/männlich"
                             android:textSize="18dp"/>
                     </RadioGroup>
+
+                    <EditText
+                        android:id="@+id/birthdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Datum auswählen"
+                        android:layout_marginTop="13dp"/>
                 </LinearLayout>
             </LinearLayout>
 
