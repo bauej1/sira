@@ -17,7 +17,7 @@ public class BodyDetailActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bodypart_detail);
 
-        Button primaryProthesis = (Button)findViewById(R.id.primaryProthesis);
+        Button primaryProthesis = (Button)findViewById(R.id.button_primaryProthesis);
 
         primaryProthesis.setOnClickListener(new View.OnClickListener(){
             @Override
