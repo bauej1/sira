@@ -149,4 +149,7 @@
     <string name="zementiertechnik1_beschr">Manuelle Zementapplikation, Handanrühren, keine Markraumsperre, keine Zementverdichtung, beschränkte Auswahl an Komponentengeometrien und -grössen.</string>
     <string name="zementiertechnik2_beschr">Makraumsperre, Lavage und Trocknung der Spongosia, retrograde Zementapplikation (mit Hilfsgerät), multiple Komponentengeometrien und -grössen.</string>
     <string name="zementiertechnik3_beschr">Zusätzlich zur Zweitgeneration: Vakuum-Zementanmischung, Porositätsreduktion des Zementes, Verdichtung des Zementmantels nach Protheseninsertion, Schaftzentralisierung im Zementmantel.</string>
+    <string name="eingabeDatum">Datum auswählen</string>
+    <string name="eingabeGroesse">Grösse eingeben</string>
+    <string name="eingabeGewicht">Gewicht eingeben</string>
 </resources>
