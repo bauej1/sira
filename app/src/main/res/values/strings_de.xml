@@ -16,7 +16,7 @@
     <string name="männlich">männlich</string>
     <string name="geburtstag">Geburtstag</string>
     <string name="ahv">AHV-Nummer</string>
-    <string name="geburtsnachname">Geburtsnachname</string>
+    <string name="geburtsnachname">Geburtsname</string>
     <string name="geburtsort">Geburtsort</string>
     <string name="geburtsland">Geburtsland</string>
     <string name="seite">Bitte wählen Sie die betroffene Seite des Patienten</string>
@@ -150,6 +150,6 @@
     <string name="zementiertechnik2_beschr">Makraumsperre, Lavage und Trocknung der Spongosia, retrograde Zementapplikation (mit Hilfsgerät), multiple Komponentengeometrien und -grössen.</string>
     <string name="zementiertechnik3_beschr">Zusätzlich zur Zweitgeneration: Vakuum-Zementanmischung, Porositätsreduktion des Zementes, Verdichtung des Zementmantels nach Protheseninsertion, Schaftzentralisierung im Zementmantel.</string>
     <string name="eingabeDatum">Datum auswählen</string>
-    <string name="eingabeGroesse">Grösse eingeben</string>
-    <string name="eingabeGewicht">Gewicht eingeben</string>
+    <string name="eingabeGroesse">Grösse in cm</string>
+    <string name="eingabeGewicht">Gewicht in kg</string>
 </resources>
