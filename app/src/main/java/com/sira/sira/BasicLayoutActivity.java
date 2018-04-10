@@ -34,7 +34,7 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.basic_layout); //JABA: setContentView(R.layout.masterdata);
+        setContentView(R.layout.basic_layout);
 
         if(savedInstanceState !=  null){
             return;
@@ -95,19 +95,15 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
             swipeLeft();
         } else {
             swipeRight();
-            /*  JABA
-                Here is a check needed if hip or knee was pressed in the activities before
-                Also this part of the code needs to be replaced in a method or something..
-             */
-            layoutId = hipLayouts.getResourceId(currentStep - 1, 0);
-            Bundle bundle = new Bundle();
-            bundle.putInt("layoutId", layoutId);
-            HpActivity hp = new HpActivity();
-            hp.setArguments(bundle);
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.fragmentLayout, hp);
-            ft.commit();
         }
+        layoutId = hipLayouts.getResourceId(currentStep, 0);
+        Bundle bundle = new Bundle();
+        bundle.putInt("layoutId", layoutId);
+        HpActivity hp = new HpActivity();
+        hp.setArguments(bundle);
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.fragmentLayout, hp);
+        ft.commit();
         return true;
     }
 
