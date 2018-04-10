@@ -27,7 +27,7 @@
         <activity android:name=".BodyDetailActivity"
             android:screenOrientation="landscape">
         </activity>
-        <activity android:name=".MasterDataActivity"
+        <activity android:name=".BasicLayoutActivity"
             android:screenOrientation="landscape">
         </activity>
         <activity android:name=".HpActivity"

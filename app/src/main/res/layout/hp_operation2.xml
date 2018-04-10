@@ -249,6 +249,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <include layout="@layout/master_layout"/>
+    <!--<include layout="@layout/master_layout"/>-->
 
 </LinearLayout>
