@@ -299,7 +299,11 @@
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/revision"/>
+                android:layout_marginLeft="10dp"
+                android:hint="@string/eingabeDatum"
+                android:inputType="number"
+                android:ems="10"
+                android:imeOptions="actionDone"/>
 
         </LinearLayout>
     </LinearLayout>
