@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.EditText;
@@ -27,16 +28,24 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
     private String implantType;
     private EditText date;
     private DatePickerDialog picker;
+    private TypedArray hipLayouts;
+    private int layoutId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.basic_layout); //JABA: setContentView(R.layout.masterdata);
 
+        if(savedInstanceState !=  null){
+            return;
+        }
+
+        hipLayouts = getResources().obtainTypedArray(R.array.hiplayouts);
+
         MasterDataActivity mda = new MasterDataActivity();
         getSupportFragmentManager().beginTransaction().add(R.id.fragmentLayout, mda).commit();
 
-        getIntentBundle(getIntent()); //What is that? :D
+        getIntentBundle(getIntent());
 
         gDetector = new GestureDetector(this);
         stepView = findViewById(R.id.step_view);
@@ -90,8 +99,7 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
                 Here is a check needed if hip or knee was pressed in the activities before
                 Also this part of the code needs to be replaced in a method or something..
              */
-            TypedArray hipLayouts = getResources().obtainTypedArray(R.array.hiplayouts);
-            int layoutId = hipLayouts.getResourceId(currentStep, 0);
+            layoutId = hipLayouts.getResourceId(currentStep - 1, 0);
             Bundle bundle = new Bundle();
             bundle.putInt("layoutId", layoutId);
             HpActivity hp = new HpActivity();

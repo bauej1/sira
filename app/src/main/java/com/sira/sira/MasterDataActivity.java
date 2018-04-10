@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,12 +31,16 @@ public class MasterDataActivity extends Fragment implements View.OnClickListener
 
     private EditText patId;
     private EditText date;
+    private Patient patient;
+    private View myView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (savedInstanceState != null) {
-        }
-        View myView = inflater.inflate(R.layout.masterdata, container, false);
+        myView = inflater.inflate(R.layout.masterdata, container, false);
+
+        patId = myView.findViewById(R.id.patId);
+        patId.setOnClickListener(this);
+
         return myView;
     }
     @Override
@@ -45,8 +50,9 @@ public class MasterDataActivity extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View myView) {
+        Log.d("im listener", "im listener");
         if (myView.getId() == R.id.patId) {
-            patId = (EditText) myView.findViewById(R.id.patId);
+            Log.d("nächster if", "nächster if");
             patId.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
                 public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -89,7 +95,7 @@ public class MasterDataActivity extends Fragment implements View.OnClickListener
         try {
             while((nextValue = reader.readNext()) != null){
                 if(nextValue[0].equals(editPatId)){
-                    //patient = new Patient(Integer.parseInt(editPatId), nextValue[1], nextValue[2], nextValue[3].charAt(0), nextValue[4], nextValue[5], nextValue[6], nextValue[7], nextValue[8]);
+                    patient = new Patient(Integer.parseInt(editPatId), nextValue[1], nextValue[2], nextValue[3].charAt(0), nextValue[4], nextValue[5], nextValue[6], nextValue[7], nextValue[8]);
                     fillFieldsWithPatData();
                 }
             }
@@ -109,32 +115,32 @@ public class MasterDataActivity extends Fragment implements View.OnClickListener
     }
 
     private void fillFieldsWithPatData(){
-        /*TextView firstName = (TextView) findViewById(R.id.vorname);
+        TextView firstName = myView.findViewById(R.id.vorname);
         firstName.setText(patient.getFirstName());
 
-        TextView secondName = (TextView) findViewById(R.id.nachname);
+        TextView secondName = myView.findViewById(R.id.nachname);
         secondName.setText(patient.getSecondName());
 
-        TextView ahv = (TextView) findViewById(R.id.ahv);
+        TextView ahv = myView.findViewById(R.id.ahv);
         ahv.setText(patient.getAhvId());
 
-        TextView birthPlace = (TextView) findViewById(R.id.geburtsort);
+        TextView birthPlace = myView.findViewById(R.id.geburtsort);
         birthPlace.setText(patient.getBirthPlace());
 
-        TextView birthName = (TextView) findViewById(R.id.geburtsname);
+        TextView birthName = myView.findViewById(R.id.geburtsname);
         birthName.setText(patient.getBirthName());
 
-        TextView birthCountry = (TextView) findViewById(R.id.geburtsland);
+        TextView birthCountry = myView.findViewById(R.id.geburtsland);
         birthCountry.setText(patient.getBirthCountry());
 
-        RadioButton male = findViewById(R.id.male);
-        RadioButton female = findViewById(R.id.female);
+        RadioButton male = myView.findViewById(R.id.male);
+        RadioButton female = myView.findViewById(R.id.female);
 
         if(patient.getGender() == 'm'){
             male.setChecked(true);
         } else {
             female.setChecked(true);
-        }*/
+        }
     }
 
 

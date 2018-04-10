@@ -27,6 +27,7 @@ public class BodyMainActivity extends AppCompatActivity{
                 bundle.putString("bodypart", "h");
                 hipIntent.putExtras(bundle);
                 startActivity(hipIntent);
+                finish();
             }
         });
 

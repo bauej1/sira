@@ -16,9 +16,6 @@ public class HpActivity extends Fragment implements View.OnClickListener{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        if(savedInstanceState!=null){
-        }
-
         Bundle bundle = getArguments();
         if(bundle != null){
             layoutId = bundle.getInt("layoutId");
