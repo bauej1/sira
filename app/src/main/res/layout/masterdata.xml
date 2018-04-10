@@ -147,7 +147,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="Datum auswählen"
+                        android:hint="@string/eingabeDatum"
                         android:layout_marginTop="13dp"/>
                 </LinearLayout>
             </LinearLayout>
