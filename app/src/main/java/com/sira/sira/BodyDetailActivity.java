@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 /**
  * Created by lea on 27.03.18.
@@ -28,6 +27,7 @@ public class BodyDetailActivity extends AppCompatActivity{
                 bundle.putString("implantType", "primary");
                 implantType.putExtras(bundle);
                 startActivity(implantType);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
             }
         });

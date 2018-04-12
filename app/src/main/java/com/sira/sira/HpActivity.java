@@ -21,7 +21,7 @@ import android.widget.RadioGroup;
 public class HpActivity extends Fragment implements View.OnClickListener{
 
     private int layoutId;
-    private int hpLayoutId = 1;
+    private int hpLayoutId = 2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -35,7 +35,7 @@ public class HpActivity extends Fragment implements View.OnClickListener{
         View myView=inflater.inflate(layoutId,container,false);
 
         TypedArray layouts = getResources().obtainTypedArray(R.array.hiplayouts);
-        if (layoutId == layouts.getResourceId(hpLayoutId, 1)){
+        if (layoutId == layouts.getResourceId(hpLayoutId, 2)){
             RadioButton radioButton = (RadioButton) myView.findViewById(R.id.hp_rb_diag_andDiag);
             radioButton.setOnClickListener(new View.OnClickListener(){
                 @Override

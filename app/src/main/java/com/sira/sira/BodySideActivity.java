@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 /**
  * Created by lea on 30.03.18.
@@ -28,6 +27,7 @@ public class BodySideActivity extends AppCompatActivity {
                 bundle.putString("bodyside", "l");
                 leftIntent.putExtras(bundle);
                 startActivity(leftIntent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
             }
         });
@@ -43,6 +43,7 @@ public class BodySideActivity extends AppCompatActivity {
                 bundle.putString("bodyside", "r");
                 leftIntent.putExtras(bundle);
                 startActivity(leftIntent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
             }
         });
