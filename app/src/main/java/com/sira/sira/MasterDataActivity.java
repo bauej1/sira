@@ -1,6 +1,7 @@
 package com.sira.sira;
 
 import android.app.DatePickerDialog;
+import android.content.res.TypedArray;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -36,7 +37,10 @@ public class MasterDataActivity extends Fragment implements View.OnClickListener
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.masterdata, container, false);
+        TypedArray hipLayouts = getResources().obtainTypedArray(R.array.hiplayouts);
+        int layoutId = hipLayouts.getResourceId(0, 0);
+
+        myView = inflater.inflate(layoutId, container, false);
 
         patId = myView.findViewById(R.id.patId);
         patId.setOnClickListener(this);
