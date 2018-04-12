@@ -152,7 +152,9 @@
     <string name="eingabeDatum">Datum auswählen</string>
     <string name="eingabeGroesse">Grösse in cm</string>
     <string name="eingabeGewicht">Gewicht in kg</string>
-    <string name="eingabeAndereDiag">Bitte geben Sie die Diagnose ein</string>
+    <string name="eingabeAndereDiag">Bitte geben Sie eine andere Diagnose ein</string>
     <string name="speichern">Speichern</string>
     <string name="abbrechen">Abbrechen</string>
+    <string name="eingabeAndereOP">Bitte geben Sie eine andere vorherige Operation ein</string>
+    <string name="eingabeAndererEingriff">Bitte geben Sie einen anderen Eingriff ein</string>
 </resources>
