@@ -4,9 +4,11 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,7 @@ public class HpActivity extends Fragment implements View.OnClickListener{
     private int layoutId;
     private int hpLayoutAufnahme2 = 2;
     private int hpLayoutOperation1 = 3;
+    private int hpLayoutOperation2 = 4;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -64,10 +67,38 @@ public class HpActivity extends Fragment implements View.OnClickListener{
                     createDialogBoxRB(getResources().getString(R.string.eingabeAndererEingriff), radioButtonIntervention);
                 }
             });
+
+            final RadioButton radioButtonAccess = (RadioButton) myView.findViewById(R.id.hp_rb_zugang_andZugang);
+            radioButtonAccess.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    createDialogBoxRB(getResources().getString(R.string.eingabeAndererZugang), radioButtonAccess);
+                }
+            });
+
+            final RadioButton radioButtonPosition = (RadioButton) myView.findViewById(R.id.hp_rb_lagerung_andLagerung);
+            radioButtonPosition.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    createDialogBoxRB(getResources().getString(R.string.eingabeAndereLagerung), radioButtonPosition);
+                }
+            });
+        }
+
+        if (layoutId == layouts.getResourceId(hpLayoutOperation2, 4)){
+            final CheckBox checkBoxSupplIntervention = (CheckBox) myView.findViewById(R.id.hp_cb_zusatzeingr_andere);
+            checkBoxSupplIntervention.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    createDialogBoxCB(getResources().getString(R.string.eingabeAndererZusatzeingriff), checkBoxSupplIntervention);
+                }
+            });
+
         }
 
         return myView;
     }
+
     @Override
     public void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
@@ -89,7 +120,11 @@ public class HpActivity extends Fragment implements View.OnClickListener{
         builder.setPositiveButton(R.string.speichern, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                radioButton.setText(input.getText().toString());
+                if (input.getText().toString().trim().length()>0) {
+                    radioButton.setText(input.getText().toString());
+                } else {
+                    dialogInterface.cancel();
+                }
             }
         })
                 .setNegativeButton(R.string.abbrechen, new DialogInterface.OnClickListener() {
@@ -119,7 +154,11 @@ public class HpActivity extends Fragment implements View.OnClickListener{
         builder.setPositiveButton(R.string.speichern, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                checkBox1.setText(input.getText().toString());
+                if (input.getText().toString().trim().length()>0){
+                    checkBox1.setText(input.getText().toString());
+                } else {
+                    dialogInterface.cancel();
+                }
             }
         })
                 .setNegativeButton(R.string.abbrechen, new DialogInterface.OnClickListener() {

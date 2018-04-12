@@ -157,4 +157,7 @@
     <string name="abbrechen">Abbrechen</string>
     <string name="eingabeAndereOP">Bitte geben Sie eine andere vorherige Operation ein</string>
     <string name="eingabeAndererEingriff">Bitte geben Sie einen anderen Eingriff ein</string>
+    <string name="eingabeAndererZugang">Bitte geben Sie einen anderen Zugang ein</string>
+    <string name="eingabeAndereLagerung">Bitte geben Sie eine andere Lagerung ein</string>
+    <string name="eingabeAndererZusatzeingriff">Bitte geben Sie einen anderen Zusatzeingriff ein</string>
 </resources>
