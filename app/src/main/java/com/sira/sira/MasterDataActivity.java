@@ -1,34 +1,28 @@
 package com.sira.sira;
 
-import android.app.DatePickerDialog;
 import android.content.res.TypedArray;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
-
 import com.opencsv.CSVReader;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Calendar;
 
 /**
  * Created by Jan on 05/04/2018.
  */
 
-public class MasterDataActivity extends Fragment implements View.OnClickListener {
+public class MasterDataActivity extends Fragment{
 
     private EditText patId;
     private EditText date;
@@ -43,7 +37,15 @@ public class MasterDataActivity extends Fragment implements View.OnClickListener
         myView = inflater.inflate(layoutId, container, false);
 
         patId = myView.findViewById(R.id.patId);
-        patId.setOnClickListener(this);
+        patId.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent){
+                if (i == EditorInfo.IME_ACTION_DONE) {
+                    getPatientData(patId.getText().toString());
+                }
+                return false;
+            }
+        });
 
         return myView;
     }
@@ -52,41 +54,25 @@ public class MasterDataActivity extends Fragment implements View.OnClickListener
         super.onSaveInstanceState(outState);
     }
 
-    @Override
-    public void onClick(View myView) {
-        Log.d("im listener", "im listener");
-        if (myView.getId() == R.id.patId) {
-            Log.d("nächster if", "nächster if");
-            patId.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                @Override
-                public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                    if (i == EditorInfo.IME_ACTION_DONE) {
-                        getPatientData(patId.getText().toString());
-                    }
-                    return false;
-                }
-            });
-        }
-        /*date = myView.findViewById(R.id.birthdate);
-        date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar cldr = Calendar.getInstance();
-                int day = cldr.get(Calendar.DAY_OF_MONTH);
-                int month = cldr.get(Calendar.MONTH);
-                int year = cldr.get(Calendar.YEAR);
-                picker = new DatePickerDialog(BasicLayoutActivity.this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                date.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-                            }
-                        }, year, month, day);
-
-                picker.show();
-            }
-        });*/
-    }
+     /*date = myView.findViewById(R.id.birthdate);
+//        date.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                final Calendar cldr = Calendar.getInstance();
+//                int day = cldr.get(Calendar.DAY_OF_MONTH);
+//                int month = cldr.get(Calendar.MONTH);
+//                int year = cldr.get(Calendar.YEAR);
+//                picker = new DatePickerDialog(BasicLayoutActivity.this,
+//                        new DatePickerDialog.OnDateSetListener() {
+//                            @Override
+//                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+//                                date.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+//                            }
+//                        }, year, month, day);
+//
+//                picker.show();
+//            }
+//        });*/
 
     private void getPatientData(String editPatId){
         if(editPatId == null){
