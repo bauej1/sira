@@ -51,7 +51,7 @@ public class HpActivity extends Fragment implements View.OnClickListener{
             checkBoxSurgery.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
-                   createDialogBoxCB(getResources().getString(R.string.eingabeAndereOP), checkBoxSurgery);
+                    createDialogBoxCB(getResources().getString(R.string.eingabeAndereOP), checkBoxSurgery);
                 }
             });
         }
