@@ -50,51 +50,67 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="40dp">
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/zementiertechnik"
-                    android:textSize="25dp"
-                    android:fontFamily="sans-serif-light"/>
+                    android:orientation="vertical">
 
-                <RadioGroup
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="30dp">
-
-                    <RadioButton
-                        android:id="@+id/hp_rb_zementiertechnik_erste"
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/generation1"
-                        android:textSize="18dp"
-                        android:textColor="@color/textDark"/>
+                        android:text="@string/zementiertechnik"
+                        android:textSize="25dp"
+                        android:fontFamily="sans-serif-light"/>
 
-                    <RadioButton
-                        android:id="@+id/hp_rb_zementiertechnik_zweite"
+                    <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="160dp"
-                        android:text="@string/generation2"
-                        android:textSize="18dp"
-                        android:textColor="@color/textDark"/>
+                        android:orientation="horizontal"
+                        android:layout_marginTop="30dp">
 
-                    <RadioButton
-                        android:id="@+id/hp_rb_zementiertechnik_dritte"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="160dp"
-                        android:text="@string/generation3"
-                        android:textSize="18dp"
-                        android:textColor="@color/textDark"/>
-                </RadioGroup>
+                        <RadioButton
+                            android:id="@+id/hp_rb_zementiertechnik_erste"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/generation1"
+                            android:textSize="18dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:id="@+id/hp_rb_zementiertechnik_zweite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="160dp"
+                            android:text="@string/generation2"
+                            android:textSize="18dp"
+                            android:textColor="@color/textDark"/>
+
+                        <RadioButton
+                            android:id="@+id/hp_rb_zementiertechnik_dritte"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="160dp"
+                            android:text="@string/generation3"
+                            android:textSize="18dp"
+                            android:textColor="@color/textDark"/>
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="100dp"
+                    android:src="@drawable/information"
+                    android:layout_gravity="bottom"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:background="@drawable/circular_bodypart"/>
             </LinearLayout>
 
             <LinearLayout
