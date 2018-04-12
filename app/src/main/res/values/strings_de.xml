@@ -29,19 +29,19 @@
     <string name="unbekannt">Unbekannt/nicht dokumentiert</string>
     <string name="charnley">Charnley-Klasse</string>
     <string name="a">
-        <font size="20">A</font>
+        <font size="18">A</font>
         <font size="15">\t\t\tunilateral erkrankt, Gegenseite gesund</font>
     </string>
     <string name="b">
-        <font size="20">B </font>
+        <font size="18">B </font>
         <font size="15">\t\t\tbilateral erkrankt</font>
     </string>
     <string name="bb">
-        <font size="20">BB</font>
+        <font size="18">BB</font>
         <font size="15">\t\tbilateral erkrankt, Gegenseite Prothese</font>
     </string>
     <string name="c">
-        <font size="20">C</font>
+        <font size="18">C</font>
         <font size="15">\t\t\tandere mobilitätseinschränkende Erkrankung(en)</font>
     </string>
     <string name="diagnose">Diagnose</string>
@@ -152,4 +152,7 @@
     <string name="eingabeDatum">Datum auswählen</string>
     <string name="eingabeGroesse">Grösse in cm</string>
     <string name="eingabeGewicht">Gewicht in kg</string>
+    <string name="eingabeAndereDiag">Bitte geben Sie die Diagnose ein</string>
+    <string name="speichern">Speichern</string>
+    <string name="abbrechen">Abbrechen</string>
 </resources>
