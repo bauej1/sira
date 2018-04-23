@@ -123,14 +123,16 @@ public class HpActivity extends Fragment implements View.OnClickListener{
                 if (input.getText().toString().trim().length()>0) {
                     radioButton.setText(input.getText().toString());
                 } else {
-                    dialogInterface.cancel();
+                    radioButton.setChecked(false);
+                    return;
                 }
             }
         })
                 .setNegativeButton(R.string.abbrechen, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
+                        radioButton.setChecked(false);
+                        return;
                     }
                 });
 
@@ -155,16 +157,18 @@ public class HpActivity extends Fragment implements View.OnClickListener{
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (input.getText().toString().trim().length()>0){
-                    checkBox1.setText(input.getText().toString());
+                    checkBox.setText(input.getText().toString());
                 } else {
-                    dialogInterface.cancel();
+                    checkBox.toggle();
+                    return;
                 }
             }
         })
                 .setNegativeButton(R.string.abbrechen, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
+                        checkBox.toggle();
+                        return;
                     }
                 });
 

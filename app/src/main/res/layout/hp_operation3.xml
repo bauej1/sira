@@ -102,15 +102,14 @@
 
                 </LinearLayout>
 
-                <ImageButton
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="100dp"
-                    android:src="@drawable/information"
                     android:layout_gravity="bottom"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerInside"
-                    android:background="@drawable/circular_bodypart"/>
+                    android:src="@drawable/ic_add_white_24dp"/>
+
             </LinearLayout>
 
             <LinearLayout

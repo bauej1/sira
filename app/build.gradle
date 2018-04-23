@@ -33,4 +33,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile 'com.github.shuhart:StepView:v1.2.6'
     compile 'com.opencsv:opencsv:3.9'
+    compile 'com.android.support:design:26.1.0'
 }
