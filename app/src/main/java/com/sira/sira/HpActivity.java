@@ -4,19 +4,18 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.TableLayout;
 
 /**
  * Created by Jan on 03/04/2018.
@@ -28,6 +27,7 @@ public class HpActivity extends Fragment implements View.OnClickListener{
     private int hpLayoutAufnahme2 = 2;
     private int hpLayoutOperation1 = 3;
     private int hpLayoutOperation2 = 4;
+    private int hpLayoutOperation3 = 5;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -94,6 +94,22 @@ public class HpActivity extends Fragment implements View.OnClickListener{
                 }
             });
 
+        }
+
+        if (layoutId == layouts.getResourceId(hpLayoutOperation3, 5)){
+            final ImageButton buttonInformation = (ImageButton) myView.findViewById(R.id.hp_ib_cement_info);
+            final LinearLayout layoutInformation = (LinearLayout) myView.findViewById(R.id.hp_layout_infoCement);
+
+            buttonInformation.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (layoutInformation.getVisibility()==View.INVISIBLE){
+                        layoutInformation.setVisibility(View.VISIBLE);
+                    } else {
+                        layoutInformation.setVisibility(View.INVISIBLE);
+                    }
+                }
+            });
         }
 
         return myView;
