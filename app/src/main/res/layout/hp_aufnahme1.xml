@@ -36,7 +36,16 @@
                 android:text="@string/hüfte_prim"
                 android:textColor="@color/colorAccent"
                 android:textSize="15dp"
-                android:layout_marginLeft="680dp"/>
+                android:layout_marginLeft="650dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="A"
+                android:textColor="@color/colorWatermark"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="35dp"/>
         </LinearLayout>
 
         <View
