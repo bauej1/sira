@@ -15,8 +15,11 @@ public class Patient {
     private String birthName;
     private String birthPlace;
     private String birthCountry;
+    private int heightInCm;
+    private int weightInKg;
+    private boolean heightWeightUnknown = false;
 
-    public Patient(int patId, String firstName, String secondName, char gender, String birthdate, String ahvId, String birthName, String birthPlace, String birthCountry) {
+    public Patient(int patId, String firstName, String secondName, char gender, String birthdate, String ahvId, String birthName, String birthPlace, String birthCountry, int heightInCm, int weightInKg, boolean heightWeightUnknown) {
         this.patId = patId;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -26,6 +29,9 @@ public class Patient {
         this.birthName = birthName;
         this.birthPlace = birthPlace;
         this.birthCountry = birthCountry;
+        this.heightInCm = heightInCm;
+        this.weightInKg = weightInKg;
+        this.heightWeightUnknown = heightWeightUnknown;
     }
 
 
@@ -63,5 +69,13 @@ public class Patient {
 
     public String getBirthCountry() {
         return birthCountry;
+    }
+
+    public int getHeightInCm() {
+        return heightInCm;
+    }
+
+    public int getWeightInKg() {
+        return weightInKg;
     }
 }
