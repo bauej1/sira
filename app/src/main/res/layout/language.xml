@@ -16,9 +16,9 @@
         <ImageView
             android:layout_width="280dp"
             android:layout_height="280dp"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/logo"/>
+            android:layout_weight="1"
+            app:srcCompat="@drawable/logo" />
 
     </LinearLayout>
 

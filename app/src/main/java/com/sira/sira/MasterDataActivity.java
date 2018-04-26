@@ -59,7 +59,6 @@ public class MasterDataActivity extends Fragment{
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
-
     private Patient getPatientData(String editPatId){
         if(editPatId == null){
             return null;
@@ -72,7 +71,6 @@ public class MasterDataActivity extends Fragment{
             while((nextValue = reader.readNext()) != null){
                 if(nextValue[0].equals(editPatId)){
                     return new Patient(Integer.parseInt(editPatId), nextValue[1], nextValue[2], nextValue[3], nextValue[4], nextValue[5], nextValue[6], nextValue[7], nextValue[8], Integer.parseInt(nextValue[9]), Integer.parseInt(nextValue[10]), Boolean.parseBoolean(nextValue[11]));
-                    //fillFieldsWithPatData();
                 }
             }
         } catch (IOException e) {

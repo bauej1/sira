@@ -38,4 +38,7 @@ dependencies {
     compile 'com.github.shuhart:StepView:v1.2.6'
     compile 'com.opencsv:opencsv:3.9'
     compile 'com.android.support:design:26.1.0'
+    compile 'com.journeyapps:zxing-android-embedded:3.0.2@aar'
+    compile 'com.google.zxing:core:3.2.0'
 }
+

@@ -3,6 +3,8 @@
     package="com.sira.sira">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" />
 
     <application
         android:allowBackup="true"
@@ -28,9 +30,6 @@
             android:screenOrientation="landscape">
         </activity>
         <activity android:name=".BasicLayoutActivity"
-            android:screenOrientation="landscape">
-        </activity>
-        <activity android:name=".HpActivity"
             android:screenOrientation="landscape">
         </activity>
     </application>
