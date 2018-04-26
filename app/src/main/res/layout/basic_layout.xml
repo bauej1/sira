@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<android.support.constraint.LinearLayout-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:background="@color/background"-->
-    <!--android:orientation="vertical">-->
-
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout
         android:id="@+id/fragmentLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     <include layout="@layout/master_layout"/>
     </FrameLayout>
-
-
-
-<!--</android.support.constraint.LinearLayout>-->
+</layout>
