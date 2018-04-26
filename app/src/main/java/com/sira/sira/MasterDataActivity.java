@@ -47,6 +47,10 @@ public class MasterDataActivity extends Fragment{
             }
         });
 
+        //final EditText editTextPatientNumber = (EditText) myView.findViewById(R.id.patId);
+        //int patientNumber = Integer.parseInt(editTextPatientNumber.getText().toString());
+
+
         return myView;
     }
     @Override
@@ -132,6 +136,4 @@ public class MasterDataActivity extends Fragment{
             female.setChecked(true);
         }
     }
-
-
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,8 +32,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -48,79 +48,79 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
                         android:text="@string/diagnose"
-                        android:textSize="25dp"
-                        android:fontFamily="sans-serif-light"/>
+                        android:textSize="25dp" />
 
                     <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginTop="30dp">
+                        android:layout_marginTop="30dp"
+                        android:orientation="vertical">
 
                         <RadioButton
                             android:id="@+id/kp_rb_diagnose_primGonarth"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/primGonarthrose"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <RadioButton
                             android:id="@+id/kp_rb_diagnose_primunikompartGonarth"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/primuniGonarthrose"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <RadioButton
                             android:id="@+id/kp_rb_diagnose_osteonekrose"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/osteonekrose"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <RadioButton
                             android:id="@+id/kp_rb_diagnose_sekGonarthEntzGen"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/sekGonarthroseGen"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <RadioButton
                             android:id="@+id/kp_rb_diagnose_sekGonarthFrakt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/sekGonarthroseFra"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <RadioButton
                             android:id="@+id/kp_rb_diagnose_sekGonarthBandver"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/sekGonarthroseBand"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <RadioButton
                             android:id="@+id/kp_rb_diagnose_sekGonarthInfekt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/sekGonarthroseInf"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <RadioButton
                             android:id="@+id/kp_rb_diagnose_andere"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/andereDiagnose"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
                     </RadioGroup>
 
                 </LinearLayout>
@@ -128,193 +128,193 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="50dp">
+                    android:layout_marginLeft="50dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
                         android:text="@string/vorherigeOP"
-                        android:textSize="25dp"
-                        android:fontFamily="sans-serif-light"/>
+                        android:textSize="25dp" />
 
                     <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginTop="15dp">
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical">
 
                         <CheckBox
                             android:id="@+id/kp_rb_vorhOP_keine"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/keine"
                             android:layout_marginTop="20dp"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark" />
+                            android:text="@string/keine"
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <CheckBox
                             android:id="@+id/kp_rb_vorhOP_nienahOsteoFE"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/knieOsteoFE"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <CheckBox
                             android:id="@+id/kp_rb_vorhOP_nienahOsteoTI"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/knieOsteoTI"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <CheckBox
                             android:id="@+id/kp_rb_vorhOP_nienahOsteosFE"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/knieOsteosFE"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <CheckBox
                             android:id="@+id/kp_rb_vorhOP_nienahOsteosTI"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/knieOsteosTI"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <CheckBox
                             android:id="@+id/kp_rb_vorhOP_kniearthro"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/kniearthroskopie"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <CheckBox
                             android:id="@+id/kp_rb_vorhOP_meniskektomie"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/meniskektomie"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <CheckBox
                             android:id="@+id/kp_rb_vorhOP_synvektomie"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/synovektomie"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <CheckBox
                             android:id="@+id/kp_rb_vorhOP_VKB"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/vkb_rekonstr"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <CheckBox
                             android:id="@+id/kp_rb_vorhOP_opPatella"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/opPatella"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <CheckBox
                             android:id="@+id/kp_rb_vorhOP_opInfekt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/opInfekt"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <CheckBox
                             android:id="@+id/kp_rb_vorhOP_opTumor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/tumorOP"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <CheckBox
                             android:id="@+id/kp_rb_vorhOP_andere"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/andereOPs"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
                     </RadioGroup>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="100dp">
+                    android:layout_marginLeft="100dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
                         android:text="@string/anzOP"
-                        android:textSize="25dp"
-                        android:fontFamily="sans-serif-light"/>
+                        android:textSize="25dp" />
 
                     <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginTop="15dp">
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical">
 
                         <RadioButton
                             android:id="@+id/kp_rb_anzOP_keine"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/keine"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <RadioButton
                             android:id="@+id/kp_rb_anzOP_einbiszwei"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1-2"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <RadioButton
                             android:id="@+id/kp_rb_anzOP_dreibisvier"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3-4"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <RadioButton
                             android:id="@+id/kp_rb_anzOP_vierplus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=">4"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
 
                         <RadioButton
                             android:id="@+id/kp_rb_anzOP_unbekannt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/unbekannt"
-                            android:textSize="18dp"
-                            android:textColor="@color/textDark"/>
+                            android:textColor="@color/textDark"
+                            android:textSize="18dp" />
                     </RadioGroup>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
-    <include layout="@layout/master_layout"/>
+    <include layout="@layout/master_layout" />
 
 </LinearLayout>
