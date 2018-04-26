@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import com.opencsv.CSVReader;
 import com.sira.sira.databinding.MasterdataBinding;
@@ -26,6 +27,7 @@ import java.io.IOException;
 public class MasterDataActivity extends Fragment{
 
     private EditText patId;
+    private Patient patient;
     private View myView;
     private MasterdataBinding binding;
     private Patient p;

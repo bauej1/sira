@@ -162,4 +162,6 @@
     <string name="eingabeAndererZusatzeingriff">Bitte geben Sie einen anderen Zusatzeingriff ein</string>
     <string name="scan_bar_code">Barcode Scannen</string>
     <string name="dialog_barcodeScan">Möchten Sie den folgenden eingescannten Barcode übernehmen?</string>
+    <string name="m">m</string>
+    <string name="f">f</string>
 </resources>
