@@ -123,7 +123,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="text"
-                            android:text="@={patient.firstName}"/>
+                            android:enabled="false"/>
 
 
                         <EditText
@@ -133,7 +133,7 @@
                             android:layout_marginTop="13dp"
                             android:ems="10"
                             android:inputType="text"
-                            android:text="@={patient.secondName}"/>
+                            android:enabled="false"/>
 
 
                         <RadioGroup
@@ -148,6 +148,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/weiblich"
+                                android:enabled="false"
                                 android:textColor="@color/textDark"
                                 android:textSize="18dp"/>
 
@@ -156,6 +157,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/männlich"
+                                android:enabled="false"
                                 android:textColor="@color/textDark"
                                 android:textSize="18dp"/>
                         </RadioGroup>
@@ -166,9 +168,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="13dp"
                             android:ems="10"
-                            android:hint="@string/eingabeDatum"
                             android:maxLines="1"
-                            android:text="@={patient.birthdate}"/>
+                            android:enabled="false"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -225,7 +226,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="text"
-                            android:text="@={patient.ahvId}"/>
+                            android:enabled="false"/>
 
                         <EditText
                             android:id="@+id/geburtsname"
@@ -234,7 +235,7 @@
                             android:layout_marginTop="13dp"
                             android:ems="10"
                             android:inputType="text"
-                            android:text="@={patient.birthName}"/>
+                            android:enabled="false"/>
 
                         <EditText
                             android:id="@+id/geburtsort"
@@ -243,7 +244,7 @@
                             android:layout_marginTop="13dp"
                             android:ems="10"
                             android:inputType="text"
-                            android:text="@={patient.birthPlace}"/>
+                            android:enabled="false"/>
 
                         <EditText
                             android:id="@+id/geburtsland"
@@ -252,7 +253,7 @@
                             android:layout_marginTop="13dp"
                             android:ems="10"
                             android:inputType="text"
-                            android:text="@={patient.birthCountry}"/>
+                            android:enabled="false"/>
 
                     </LinearLayout>
                 </LinearLayout>

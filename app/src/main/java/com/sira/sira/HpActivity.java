@@ -1,8 +1,10 @@
 package com.sira.sira;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.provider.MediaStore;
@@ -23,6 +25,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.google.zxing.client.android.Intents;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -36,16 +39,38 @@ import java.util.ArrayList;
 
 public class HpActivity extends Fragment implements View.OnClickListener {
 
+    /**
+     * All the ID Constants are used for static referencing to the layouts from the R.array.hiplayouts.
+     */
+    private static final int masterdataID = 2131427383;
+    private static final int barcodeID = 2131427355;
+    private static final int aufnahme1ID = 2131427374;
+    private static final int aufnahme2ID = 2131427375;
+    private static final int op1ID = 2131427376;
+    private static final int op2ID = 2131427377;
+    private static final int op3ID = 2131427378;
+    /**
+     * ===============================================================================================
+     */
     private int layoutId;
+    private int masterdata = 0;
     private int barcodeLayout = 1;
     private int hpLayoutAufnahme2 = 3;
     private int hpLayoutOperation1 = 4;
     private int hpLayoutOperation2 = 5;
     private int hpLayoutOperation3 = 6;
-    View myView;
+    private View myView;
+    private SharedPreferences sp;
+    private Patient p;
+    private boolean patientLoaded = false;
+    private TypedArray layouts;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        loadData();
+        layouts = getResources().obtainTypedArray(R.array.hiplayouts);
+
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             layoutId = bundle.getInt("layoutId");
@@ -54,28 +79,14 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         }
 
         myView = inflater.inflate(layoutId, container, false);
-
-        TypedArray layouts = getResources().obtainTypedArray(R.array.hiplayouts);
+        fillLayoutData(layoutId);
 
         if (layoutId == layouts.getResourceId(barcodeLayout, 1)) {
-            Log.d("startedActivity", "startedActivity");
-
             ImageButton barcodeButton = (ImageButton) myView.findViewById(R.id.scan_button);
-            if (getActivity()==null){
-                Log.d("activityIsNull", "activityIsNull");
-            }
-
-            Log.d("getActivity", "" + getActivity());
-
             final IntentIntegrator integrator = new IntentIntegrator(getActivity());
-            //final Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
             barcodeButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("button was clicked", "button was clicked");
-                    Log.d("button", "gfgfg" +this.getClass().getSimpleName());
-                    Log.d("testButton", "testButton");
                     integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);
                     integrator.setPrompt("Scan a barcode");
                     integrator.setCameraId(0);  // Use a specific camera of the device
@@ -84,7 +95,6 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                 }
 
             });
-
             return myView;
         }
 
@@ -158,7 +168,6 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                 }
             });
         }
-
         return myView;
     }
 
@@ -240,5 +249,79 @@ public class HpActivity extends Fragment implements View.OnClickListener {
 
         Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
         negativeButton.setTextColor(Color.parseColor("#838182"));
+    }
+
+    /**
+     * Load data from SharedPreferences called patientData from System and reconvert it from Json to a Patient Object.
+     */
+    private void loadData(){
+        sp = getContext().getSharedPreferences("patientData", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sp.getString("patient", "");
+
+        if(sp.getBoolean("loaded", false) == true) {
+            patientLoaded = true;
+        }
+        p = gson.fromJson(json, Patient.class);
+    }
+
+    /**
+     * Calls the methods to fill the different layouts by layoutId.
+     *
+     * @param layoutId - the id of the layout in integer
+     */
+    private void fillLayoutData(int layoutId){
+
+        if(patientLoaded){
+            switch(layoutId){
+                case masterdataID:
+                    fillMasterDataFields();
+                    break;
+                case aufnahme1ID:
+                    fillAufnahmeData1();
+                    break;
+            }
+        }
+    }
+
+    /**
+     * This method fills data from a patient object in the layout for Aufnahme1.
+     */
+    private void fillAufnahmeData1(){
+        EditText height = myView.findViewById(R.id.hp_et_height);
+        EditText weight = myView.findViewById(R.id.hp_et_weight);
+
+        height.setText(p.getHeightInCm() + "");
+        weight.setText(p.getWeightInKg() + "");
+    }
+
+    /**
+     * This method fills master data from a patient object in the layout for masterdata.
+     */
+    private void fillMasterDataFields(){
+        EditText pid = myView.findViewById(R.id.patId);
+        EditText firstName = myView.findViewById(R.id.vorname);
+        EditText secondName = myView.findViewById(R.id.nachname);
+        RadioButton male = myView.findViewById(R.id.male);
+        RadioButton female = myView.findViewById(R.id.female);
+        EditText birthdate = myView.findViewById(R.id.birthdate);
+        EditText ahv = myView.findViewById(R.id.ahv);
+        EditText birthPlace = myView.findViewById(R.id.geburtsort);
+        EditText birthName = myView.findViewById(R.id.geburtsname);
+        EditText birthCountry = myView.findViewById(R.id.geburtsland);
+
+        pid.setText(p.getPatId() + "");
+        firstName.setText(p.getFirstName());
+        secondName.setText(p.getSecondName());
+        if(p.getGender().equals('m')){
+            male.setChecked(true);
+        } else {
+            female.setChecked(true);
+        }
+        birthdate.setText(p.getBirthdate());
+        ahv.setText(p.getAhvId());
+        birthPlace.setText(p.getBirthPlace());
+        birthCountry.setText(p.getBirthCountry());
+        birthName.setText(p.getBirthName());
     }
 }

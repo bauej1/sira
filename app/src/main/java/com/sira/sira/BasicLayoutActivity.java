@@ -102,7 +102,7 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
         float firstX = firstMotion.getX();
         float secondX = secondMotion.getX();
 
-        if(firstX < secondX){
+        if((firstX + 200) < secondX){
             swipeLeft();
         } else {
             swipeRight();

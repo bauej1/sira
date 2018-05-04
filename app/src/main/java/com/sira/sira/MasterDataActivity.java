@@ -1,7 +1,7 @@
 package com.sira.sira;
-
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
-import android.databinding.DataBindingUtil;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -13,8 +13,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import com.google.gson.Gson;
 import com.opencsv.CSVReader;
-import com.sira.sira.databinding.MasterdataBinding;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -27,21 +27,19 @@ import java.io.IOException;
 public class MasterDataActivity extends Fragment{
 
     private EditText patId;
-    private Patient patient;
     private View myView;
-    private MasterdataBinding binding;
     private Patient p;
+    private SharedPreferences sp;
+    private SharedPreferences.Editor editor;
+    private boolean patientLoaded = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        binding = DataBindingUtil.inflate(inflater, R.layout.masterdata, null, false);
 
         TypedArray hipLayouts = getResources().obtainTypedArray(R.array.hiplayouts);
         int layoutId = hipLayouts.getResourceId(0, 0);
 
         myView = inflater.inflate(layoutId, container, false);
-        myView = binding.getRoot();
 
         patId = myView.findViewById(R.id.patId);
         patId.setOnEditorActionListener(new TextView.OnEditorActionListener(){
@@ -49,7 +47,9 @@ public class MasterDataActivity extends Fragment{
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent){
                 if (i == EditorInfo.IME_ACTION_DONE) {
                     p = getPatientData(patId.getText().toString());
-                    binding.setPatient(p);
+                    patientLoaded = true;
+                    loadPatientToSharedPref(p, patientLoaded);
+                    fillMasterDataFields();
                 }
                 return false;
             }
@@ -57,10 +57,19 @@ public class MasterDataActivity extends Fragment{
 
         return myView;
     }
+
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
+
+    /**
+     * Gets the patient data and reads the received values to push it into a Patient Object.
+     *
+     * @param editPatId
+     *
+     * @return a Patient Object
+     */
     private Patient getPatientData(String editPatId){
         if(editPatId == null){
             return null;
@@ -81,6 +90,11 @@ public class MasterDataActivity extends Fragment{
         return null;
     }
 
+    /**
+     * Reads the dummy data file from a specific path inside the Samsung Galaxy Tab.
+     *
+     * @return a CSVReader Object
+     */
     private CSVReader getDummyDataFile(){
         File file = new File(Environment.getExternalStorageDirectory() + "/Documents/dummyPatients.csv");
         try {
@@ -89,5 +103,53 @@ public class MasterDataActivity extends Fragment{
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * Loads the retrieved Patient Object into the SharedPreferences on the Android System.
+     *
+     * @param p - Patient
+     */
+    private void loadPatientToSharedPref(Patient p, boolean patientLoaded){
+        sp = getContext().getSharedPreferences("patientData", Context.MODE_PRIVATE);
+        editor = sp.edit();
+
+        Gson gson = new Gson();
+        String patientJson = gson.toJson(p);
+
+        editor.putString("patient", patientJson);
+        editor.putBoolean("loaded", patientLoaded);
+        editor.apply();
+        editor.commit();
+    }
+
+    /**
+     * This method fills master data from a patient object in the layout for masterdata.
+     */
+    private void fillMasterDataFields(){
+        EditText pid = myView.findViewById(R.id.patId);
+        EditText firstName = myView.findViewById(R.id.vorname);
+        EditText secondName = myView.findViewById(R.id.nachname);
+        RadioButton male = myView.findViewById(R.id.male);
+        RadioButton female = myView.findViewById(R.id.female);
+        EditText birthdate = myView.findViewById(R.id.birthdate);
+        EditText ahv = myView.findViewById(R.id.ahv);
+        EditText birthPlace = myView.findViewById(R.id.geburtsort);
+        EditText birthName = myView.findViewById(R.id.geburtsname);
+        EditText birthCountry = myView.findViewById(R.id.geburtsland);
+
+        pid.setText(p.getPatId() + "");
+        firstName.setText(p.getFirstName());
+        secondName.setText(p.getSecondName());
+        if(p.getGender().equals('m')){
+            male.setChecked(true);
+        } else {
+            female.setChecked(true);
+        }
+        birthdate.setText(p.getBirthdate());
+        ahv.setText(p.getAhvId());
+        birthPlace.setText(p.getBirthPlace());
+        birthCountry.setText(p.getBirthCountry());
+        birthName.setText(p.getBirthName());
     }
 }
