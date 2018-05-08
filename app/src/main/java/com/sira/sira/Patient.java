@@ -26,8 +26,8 @@ public class Patient extends BaseObservable{
     private int weightInKg;
     private boolean heightWeightUnknown = false;
     private boolean isFemale = false;
-//    private Surgeon surgeon;
-//    private HPrimaryImplantData hprimImplantData;
+    private Surgeon surgeon;
+    private HPrimaryImplantData hprimImplantData;
 
     public Patient(int patId, String firstName, String secondName, String gender, String birthdate, String ahvId, String birthName, String birthPlace, String birthCountry, int heightInCm, int weightInKg, boolean heightWeightUnknown) {
         this.patId = patId;
@@ -46,6 +46,9 @@ public class Patient extends BaseObservable{
         if(gender.equals("f")){
             isFemale = true;
         }
+
+        this.surgeon = new Surgeon();
+        this.hprimImplantData = new HPrimaryImplantData();
     }
 
     @Bindable
@@ -166,5 +169,20 @@ public class Patient extends BaseObservable{
     public void setHeightWeightUnknown(boolean heightWeightUnknown) {
         this.heightWeightUnknown = heightWeightUnknown;
         notifyPropertyChanged(BR.heightWeightUnknown);
+    }
+
+    public void setSurgeon(){
+        surgeon.setInitial("KBR");
+        surgeon.setSurname("Hans");
+        surgeon.setLastname("Knochenbrecher");
+        surgeon.setTitle("Dr. med.");
+    }
+
+    public Surgeon getSurgeon(){
+       return surgeon;
+    }
+
+    public HPrimaryImplantData getHPrimaryImplantData(){
+        return hprimImplantData;
     }
 }

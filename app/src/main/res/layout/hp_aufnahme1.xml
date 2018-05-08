@@ -134,6 +134,7 @@
                         android:textColor="@color/textDark"/>
 
                     <RadioGroup
+                        android:id="@+id/hp_rb_charnley_group"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"

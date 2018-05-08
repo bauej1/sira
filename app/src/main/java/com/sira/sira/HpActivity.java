@@ -3,14 +3,11 @@ package com.sira.sira;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,15 +19,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.RadioGroup;
 import com.google.gson.Gson;
 import com.google.zxing.client.android.Intents;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-import java.util.ArrayList;
 
 
 /**
@@ -55,6 +49,7 @@ public class HpActivity extends Fragment implements View.OnClickListener {
     private int layoutId;
     private int masterdata = 0;
     private int barcodeLayout = 1;
+    private int hpLayoutAufnahme1 = 2;
     private int hpLayoutAufnahme2 = 3;
     private int hpLayoutOperation1 = 4;
     private int hpLayoutOperation2 = 5;
@@ -64,6 +59,7 @@ public class HpActivity extends Fragment implements View.OnClickListener {
     private Patient p;
     private boolean patientLoaded = false;
     private TypedArray layouts;
+    private SharedPreferences.Editor editor;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -98,6 +94,17 @@ public class HpActivity extends Fragment implements View.OnClickListener {
             return myView;
         }
 
+        if(layoutId == layouts.getResourceId(hpLayoutAufnahme1, 2)){
+            RadioGroup rgCharnley = (RadioGroup) myView.findViewById(R.id.hp_rb_charnley_group);
+            rgCharnley.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+                public void onCheckedChanged(RadioGroup rg, int checkedId){
+                    RadioButton checkedButton = (RadioButton) rg.findViewById(checkedId);
+                    p.getHPrimaryImplantData().setCharnleyClass(checkedButton.getText().subSequence(0, 2).toString());
+                    loadPatientToSharedPref(p, true);
+                }
+            });
+        }
+
         if (layoutId == layouts.getResourceId(hpLayoutAufnahme2, 3)) {
             final RadioButton radioButtonDiagnosis = (RadioButton) myView.findViewById(R.id.hp_rb_diag_andDiag);
             radioButtonDiagnosis.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +119,25 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                 @Override
                 public void onClick(View v) {
                     createDialogBoxCB(getResources().getString(R.string.eingabeAndereOP), checkBoxSurgery);
+                }
+            });
+
+            RadioGroup rgDiagnosis = (RadioGroup) myView.findViewById(R.id.hp_rg_diagnose);
+            rgDiagnosis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+                public void onCheckedChanged(RadioGroup rg, int checkedId){
+                    RadioButton checkedButton = (RadioButton) rg.findViewById(checkedId);
+                    p.getHPrimaryImplantData().setDiagnosis(checkedButton.getText().toString());
+                    loadPatientToSharedPref(p, true);
+                }
+            });
+
+            RadioGroup rgPrevOP = (RadioGroup) myView.findViewById(R.id.hp_cb_vorhOP);
+            rgPrevOP.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+                public void onCheckedChanged(RadioGroup rg, int checkedId){
+                    CheckBox checkedButton = (CheckBox) rg.findViewById(checkedId);
+                    Log.d("checkedButton", checkedButton.getText().toString() + "");
+                    p.getHPrimaryImplantData().setPreviousSurgeries(checkedButton.getText().toString());
+                    loadPatientToSharedPref(p, true);
                 }
             });
         }
@@ -280,6 +306,9 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                 case aufnahme1ID:
                     fillAufnahmeData1();
                     break;
+                case aufnahme2ID:
+                    fillAufnahmeData2();
+                    break;
             }
         }
     }
@@ -290,9 +319,45 @@ public class HpActivity extends Fragment implements View.OnClickListener {
     private void fillAufnahmeData1(){
         EditText height = myView.findViewById(R.id.hp_et_height);
         EditText weight = myView.findViewById(R.id.hp_et_weight);
+        RadioGroup rgCharnley = myView.findViewById(R.id.hp_rb_charnley_group);
+
+        for(int i = 0; i < rgCharnley.getChildCount(); i++){
+            RadioButton button = (RadioButton) rgCharnley.getChildAt(i);
+
+            if(button.getText().subSequence(0,2).toString().equals(p.getHPrimaryImplantData().getCharnleyClass())){
+                button.setChecked(true);
+            }
+        }
 
         height.setText(p.getHeightInCm() + "");
         weight.setText(p.getWeightInKg() + "");
+    }
+
+    /**
+     * This method fills data from a patient object in the layout for Aufnahme2.
+     */
+    private void fillAufnahmeData2(){
+        RadioGroup rgDiagnosis = myView.findViewById(R.id.hp_rg_diagnose);
+        RadioGroup rgPrevOP = myView.findViewById(R.id.hp_cb_vorhOP);
+
+        for(int i = 0; i < rgDiagnosis.getChildCount(); i++){
+            RadioButton button = (RadioButton) rgDiagnosis.getChildAt(i);
+            if(button.getText().toString().equals(p.getHPrimaryImplantData().getDiagnosis())){
+                button.setChecked(true);
+            }
+        }
+
+        for(int i = 0; i < rgPrevOP.getChildCount(); i++){
+            CheckBox box = (CheckBox) rgPrevOP.getChildAt(i);
+
+/*            Log.d("boxtext:", box.getText().toString() + "");
+            Log.d("data: ", p.getHPrimaryImplantData().getPreviousSurgeries(i) + "");*/
+
+            if(box.getText().toString().equals(p.getHPrimaryImplantData().getPreviousSurgeries(i))){
+                box.setChecked(true);
+            }
+        }
+
     }
 
     /**
@@ -323,5 +388,25 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         birthPlace.setText(p.getBirthPlace());
         birthCountry.setText(p.getBirthCountry());
         birthName.setText(p.getBirthName());
+    }
+
+    /**
+     * Loads the retrieved Patient Object into the SharedPreferences on the Android System.
+     *
+     * THIS METHOD MAYBE NEEDS TO BE A STATIC METHOD IN A COMMON CLASS!!!! JAN
+     *
+     * @param p - Patient
+     */
+    private void loadPatientToSharedPref(Patient p, boolean patientLoaded){
+        sp = getContext().getSharedPreferences("patientData", Context.MODE_PRIVATE);
+        editor = sp.edit();
+
+        Gson gson = new Gson();
+        String patientJson = gson.toJson(p);
+
+        editor.putString("patient", patientJson);
+        editor.putBoolean("loaded", patientLoaded);
+        editor.apply();
+        editor.commit();
     }
 }

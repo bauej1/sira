@@ -7,6 +7,39 @@ package com.sira.sira;
 public class Surgeon {
     private String initial;
     private String surname;
+
+    public String getInitial() {
+        return initial;
+    }
+
+    public void setInitial(String initial) {
+        this.initial = initial;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     private String lastname;
     private String title;
 
@@ -17,19 +50,9 @@ public class Surgeon {
         this.title = title;
     }
 
-    public String getInitial(){
-        return initial;
+    public Surgeon(){
+
     }
 
-    public String getSurname() {
-        return surname;
-    }
 
-    public String getLastname() {
-        return lastname;
-    }
-
-    public String getTitle() {
-        return title;
-    }
 }

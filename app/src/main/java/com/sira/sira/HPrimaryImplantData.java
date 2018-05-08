@@ -1,5 +1,9 @@
 package com.sira.sira;
 
+import android.util.Log;
+
+import java.util.ArrayList;
+
 /**
  * Created by Jan on 24/04/2018.
  * This class is used as a container to collect all the formular data before transforming into XML Format to push it into the database.
@@ -7,9 +11,9 @@ package com.sira.sira;
 
 public class HPrimaryImplantData {
 
-    private char charnleyClass;
+    private String charnleyClass;
     private String diagnosis;
-    private String[] previousSurgeries;
+    private ArrayList<String> previousSurgeries = new ArrayList<>();
     private String asaState;
     private String intervention;
     private String accessDirection;
@@ -18,7 +22,7 @@ public class HPrimaryImplantData {
     private String[] additionalInterventions;
     private int cementingType;
 
-    public HPrimaryImplantData(char charnleyClass, String diagnosis, String[] previousSurgeries, String asaState, String intervention, String accessDirection, String position, String fixation, String[] additionalInterventions, int cementingType) {
+    public HPrimaryImplantData(String charnleyClass, String diagnosis, ArrayList<String> previousSurgeries, String asaState, String intervention, String accessDirection, String position, String fixation, String[] additionalInterventions, int cementingType) {
         this.charnleyClass = charnleyClass;
         this.diagnosis = diagnosis;
         this.previousSurgeries = previousSurgeries;
@@ -31,11 +35,15 @@ public class HPrimaryImplantData {
         this.cementingType = cementingType;
     }
 
-    public char getCharnleyClass() {
+    public HPrimaryImplantData(){
+
+    }
+
+    public String getCharnleyClass() {
         return charnleyClass;
     }
 
-    public void setCharnleyClass(char charnleyClass) {
+    public void setCharnleyClass(String charnleyClass) {
         this.charnleyClass = charnleyClass;
     }
 
@@ -47,12 +55,16 @@ public class HPrimaryImplantData {
         this.diagnosis = diagnosis;
     }
 
-    public String[] getPreviousSurgeries() {
-        return previousSurgeries;
+    public String getPreviousSurgeries(int i) {
+        if(previousSurgeries.size() > 0){
+            return previousSurgeries.get(i);
+        }
+        return null;
     }
 
-    public void setPreviousSurgeries(String[] previousSurgeries) {
-        this.previousSurgeries = previousSurgeries;
+    public void setPreviousSurgeries(String previousSurgeries) {
+        Log.d("prevsurg", previousSurgeries);
+        this.previousSurgeries.add(previousSurgeries);
     }
 
     public String getAsaState() {
