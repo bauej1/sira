@@ -236,87 +236,141 @@
                     android:orientation="vertical"
                     android:layout_marginLeft="100dp">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/allgemeinzustand"
-                        android:textSize="25dp"
-                        android:fontFamily="sans-serif-light"/>
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/charnley"
+                            android:textSize="25dp"
+                            android:fontFamily="sans-serif-light"/>
+
+                        <ImageButton
+                            android:id="@+id/hp_ib_charnley_info"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="#00000000"
+                            android:src="@drawable/ic_info_outline_white_24dp"/>
+                    </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/hp_rb_charnley_group"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp">
 
                         <RadioButton
-                            android:id="@+id/hp_rb_allg_asa1"
+                            android:id="@+id/hp_rb_allg_charnleyA"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/asa1"
+                            android:text="@string/a"
+                            android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
-                            android:id="@+id/hp_rb_allg_asa2"
+                            android:id="@+id/hp_rb_allg_charnleyB"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/asa2"
+                            android:text="@string/b"
+                            android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
-                            android:id="@+id/hp_rb_allg_asa3"
+                            android:id="@+id/hp_rb_allg_charnleyBB"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/asa3"
+                            android:text="@string/bb"
+                            android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
-                            android:id="@+id/hp_rb_allg_asa4"
+                            android:id="@+id/hp_rb_allg_charnleyC"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/asa4"
+                            android:text="@string/c"
+                            android:textSize="18dp"
                             android:textColor="@color/textDark"/>
 
                         <RadioButton
-                            android:id="@+id/hp_rb_allg_asa5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/asa5"
-                            android:textColor="@color/textDark"/>
-
-                        <RadioButton
-                            android:id="@+id/hp_rb_allg_unb"
+                            android:id="@+id/hp_rb_allg_charnleyUnb"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/unbekannt"
-                            android:textColor="@color/textDark"
-                            android:textSize="18dp"/>
+                            android:textSize="18dp"
+                            android:textColor="@color/textDark"/>
                     </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/hp_ll_infoCharnley"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="30dp"
+                            android:visibility="invisible">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/a"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/b"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/bb"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/c"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginLeft="10dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/beschrA"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/beschrB"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/beschrBB"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/beschrC"/>
+                            </LinearLayout>
+                        </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/opDatum"
-                android:textSize="25dp"
-                android:fontFamily="sans-serif-light" />
-
-            <EditText
-                android:id="@+id/date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:hint="@string/eingabeDatum"
-                android:inputType="number"
-                android:ems="10"
-                android:imeOptions="actionDone"/>
-
         </LinearLayout>
     </LinearLayout>
 

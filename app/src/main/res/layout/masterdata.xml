@@ -99,7 +99,7 @@
                             android:id="@+id/ahv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+                            android:ems="12"
                             android:inputType="text"
                             android:enabled="false"/>
 
@@ -107,7 +107,7 @@
                             android:id="@+id/vorname"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+                            android:ems="12"
                             android:inputType="text"
                             android:enabled="false"/>
 
@@ -116,7 +116,7 @@
                             android:id="@+id/nachname"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+                            android:ems="12"
                             android:inputType="text"
                             android:enabled="false"/>
 
@@ -124,7 +124,7 @@
                             android:id="@+id/geburtsort"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+                            android:ems="12"
                             android:inputType="text"
                             android:enabled="false"/>
 
@@ -132,7 +132,7 @@
                             android:id="@+id/geburtsland"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+                            android:ems="12"
                             android:inputType="text"
                             android:enabled="false"/>
 
@@ -167,7 +167,7 @@
                             android:id="@+id/birthdate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+                            android:ems="12"
                             android:maxLines="1"
                             android:enabled="false"/>
                     </LinearLayout>
@@ -208,7 +208,7 @@
                             android:id="@+id/groesse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+                            android:ems="12"
                             android:inputType="text"
                             android:enabled="false"/>
 
@@ -216,7 +216,7 @@
                             android:id="@+id/gewicht"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+                            android:ems="12"
                             android:inputType="text"
                             android:enabled="false"/>
 
@@ -224,7 +224,7 @@
                             android:id="@+id/asa"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+                            android:ems="12"
                             android:inputType="text"
                             android:enabled="false"/>
 
@@ -233,7 +233,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="40dp"
-                            android:ems="10"
+                            android:ems="12"
                             android:inputType="date"
                             android:enabled="false"/>
 
@@ -241,16 +241,16 @@
                             android:id="@+id/firstSurgeon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="date"
+                            android:ems="12"
+                            android:inputType="text"
                             android:enabled="false"/>
 
                         <EditText
                             android:id="@+id/secSurgeon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="date"
+                            android:ems="12"
+                            android:inputType="text"
                             android:enabled="false"/>
 
                     </LinearLayout>

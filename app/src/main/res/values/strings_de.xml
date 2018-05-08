@@ -28,22 +28,14 @@
     <string name="grösse_gewicht">Grösse/Gewicht</string>
     <string name="unbekannt">Unbekannt/nicht dokumentiert</string>
     <string name="charnley">Charnley-Klasse</string>
-    <string name="a">
-        <font size="18">A</font>
-        <font size="15">\t\t\tunilateral erkrankt, Gegenseite gesund</font>
-    </string>
-    <string name="b">
-        <font size="18">B </font>
-        <font size="15">\t\t\tbilateral erkrankt</font>
-    </string>
-    <string name="bb">
-        <font size="18">BB</font>
-        <font size="15">\t\tbilateral erkrankt, Gegenseite Prothese</font>
-    </string>
-    <string name="c">
-        <font size="18">C</font>
-        <font size="15">\t\t\tandere mobilitätseinschränkende Erkrankung(en)</font>
-    </string>
+    <string name="a">A</string>
+    <string name="b">B</string>
+    <string name="bb">BB</string>
+    <string name="c">C</string>
+    <string name="beschrA">unilateral erkrankt, Gegenseite gesund</string>
+    <string name="beschrB">bilateral erkrankt</string>
+    <string name="beschrBB">bilateral erkrankt, Gegenseite Prothese</string>
+    <string name="beschrC">andere mobilitätseinschränkende Erkrankung(en)</string>
     <string name="diagnose">Diagnose</string>
     <string name="arthrose">Arthrose</string>
     <string name="entzLeiden">entzündliches Leiden</string>
