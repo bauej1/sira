@@ -51,7 +51,6 @@ public class HpActivity extends Fragment implements View.OnClickListener {
     private int hpLayoutAufnahme2 = 2;
     private int hpLayoutOperation1 = 3;
     private int hpLayoutOperation2 = 4;
-    private int hpLayoutOperation3 = 5;
     private View myView;
     private SharedPreferences sp;
     private Patient p;
@@ -186,9 +185,6 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                 }
             });
 
-        }
-
-        if (layoutId == layouts.getResourceId(hpLayoutOperation3, 5)) {
             final ImageButton buttonInformation = (ImageButton) myView.findViewById(R.id.hp_ib_cement_info);
             final LinearLayout layoutInformation = (LinearLayout) myView.findViewById(R.id.hp_layout_infoCement);
 
@@ -202,7 +198,9 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                     }
                 }
             });
+
         }
+
         return myView;
     }
 
@@ -424,7 +422,6 @@ public class HpActivity extends Fragment implements View.OnClickListener {
 
         Gson gson = new Gson();
         String patientJson = gson.toJson(p);
-        Log.d("charnleyLog1243", p.getHPrimaryImplantData().getCharnleyClass() + "");
 
         editor.putString("patient", patientJson);
         editor.putBoolean("loaded", patientLoaded);
