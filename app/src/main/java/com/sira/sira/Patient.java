@@ -23,8 +23,11 @@ public class Patient extends BaseObservable{
     private boolean isFemale = false;
     private HPrimaryImplantData hprimImplantData;
     private int asa;
+    private String surgeryDate;
+    private String firstSurgeon;
+    private String secondSurgeon;
 
-    public Patient(int patId, String firstName, String secondName, String gender, String birthdate, String ahvId, String birthName, String birthPlace, String birthCountry, int heightInCm, int weightInKg, boolean heightWeightUnknown, int asa) {
+    public Patient(int patId, String firstName, String secondName, String gender, String birthdate, String ahvId, String birthName, String birthPlace, String birthCountry, int heightInCm, int weightInKg, boolean heightWeightUnknown, int asa, String surgeryDate, String firstSurgeon, String secondSurgeon) {
         this.patId = patId;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -38,6 +41,9 @@ public class Patient extends BaseObservable{
         this.weightInKg = weightInKg;
         this.heightWeightUnknown = heightWeightUnknown;
         this.asa = asa;
+        this.surgeryDate = surgeryDate;
+        this.firstSurgeon = firstSurgeon;
+        this.secondSurgeon = secondSurgeon;
 
         if(gender.equals("f")){
             isFemale = true;
@@ -152,5 +158,29 @@ public class Patient extends BaseObservable{
 
     public HPrimaryImplantData getHPrimaryImplantData(){
         return hprimImplantData;
+    }
+
+    public String getSurgeryDate() {
+        return surgeryDate;
+    }
+
+    public void setSurgeryDate(String surgeryDate) {
+        this.surgeryDate = surgeryDate;
+    }
+
+    public String getFirstSurgeon() {
+        return firstSurgeon;
+    }
+
+    public void setFirstSurgeon(String firstSurgeon) {
+        this.firstSurgeon = firstSurgeon;
+    }
+
+    public String getSecondSurgeon() {
+        return secondSurgeon;
+    }
+
+    public void setSecondSurgeon(String secondSurgeon) {
+        this.secondSurgeon = secondSurgeon;
     }
 }

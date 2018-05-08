@@ -372,7 +372,6 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         EditText birthdate = myView.findViewById(R.id.birthdate);
         EditText ahv = myView.findViewById(R.id.ahv);
         EditText birthPlace = myView.findViewById(R.id.geburtsort);
-        EditText birthName = myView.findViewById(R.id.geburtsname);
         EditText birthCountry = myView.findViewById(R.id.geburtsland);
         EditText height = myView.findViewById(R.id.groesse);
         EditText weight = myView.findViewById(R.id.gewicht);
@@ -396,6 +395,9 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         weight.setText(p.getWeightInKg() + " kg");
         height.setText(p.getHeightInCm() + " cm");
         asa.setText(p.getAsa() + "");
+        surgeryDate.setText(p.getSurgeryDate());
+        firstSurgeon.setText(p.getFirstSurgeon());
+        secondSurgeon.setText(p.getSecondSurgeon());
     }
 
     /**

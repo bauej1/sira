@@ -80,42 +80,28 @@
                         android:layout_marginTop="40dp"
                         android:orientation="vertical">
 
-                        <TextView
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/vorname"
-                            android:textSize="20dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
-                            android:text="@string/nachname"
-                            android:textSize="20dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
-                            android:text="@string/geschlecht"
-                            android:textSize="20dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
-                            android:text="@string/geburtstag"
-                            android:textSize="20dp" />
+                            android:src="@drawable/ic_person_red_24dp"/>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="50dp"
+                        android:layout_marginLeft="30dp"
                         android:layout_marginTop="25dp"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
                         android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/ahv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:enabled="false"/>
 
                         <EditText
                             android:id="@+id/vorname"
@@ -130,7 +116,22 @@
                             android:id="@+id/nachname"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="13dp"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:enabled="false"/>
+
+                        <EditText
+                            android:id="@+id/geburtsort"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:enabled="false"/>
+
+                        <EditText
+                            android:id="@+id/geburtsland"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="text"
                             android:enabled="false"/>
@@ -140,7 +141,7 @@
                             android:id="@+id/gender"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="25dp"
+                            android:layout_marginTop="10dp"
                             android:orientation="horizontal">
 
                             <RadioButton
@@ -166,7 +167,6 @@
                             android:id="@+id/birthdate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="13dp"
                             android:ems="10"
                             android:maxLines="1"
                             android:enabled="false"/>
@@ -185,32 +185,16 @@
                         android:layout_marginTop="40dp"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/ahv"
-                            android:textSize="20dp" />
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/star_of_life"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
-                            android:text="@string/geburtsnachname"
-                            android:textSize="20dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
-                            android:text="@string/geburtsort"
-                            android:textSize="20dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
-                            android:text="@string/geburtsland"
-                            android:textSize="20dp" />
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="140dp"
+                            android:src="@drawable/doctor" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -221,7 +205,7 @@
                         android:orientation="vertical">
 
                         <EditText
-                            android:id="@+id/ahv"
+                            android:id="@+id/groesse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
@@ -229,30 +213,44 @@
                             android:enabled="false"/>
 
                         <EditText
-                            android:id="@+id/geburtsname"
+                            android:id="@+id/gewicht"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="13dp"
                             android:ems="10"
                             android:inputType="text"
                             android:enabled="false"/>
 
                         <EditText
-                            android:id="@+id/geburtsort"
+                            android:id="@+id/asa"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="13dp"
                             android:ems="10"
                             android:inputType="text"
                             android:enabled="false"/>
 
                         <EditText
-                            android:id="@+id/geburtsland"
+                            android:id="@+id/surgDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="13dp"
+                            android:layout_marginTop="40dp"
                             android:ems="10"
-                            android:inputType="text"
+                            android:inputType="date"
+                            android:enabled="false"/>
+
+                        <EditText
+                            android:id="@+id/firstSurgeon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:enabled="false"/>
+
+                        <EditText
+                            android:id="@+id/secSurgeon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="date"
                             android:enabled="false"/>
 
                     </LinearLayout>
