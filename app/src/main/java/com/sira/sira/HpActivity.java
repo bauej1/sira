@@ -374,10 +374,16 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         EditText birthPlace = myView.findViewById(R.id.geburtsort);
         EditText birthName = myView.findViewById(R.id.geburtsname);
         EditText birthCountry = myView.findViewById(R.id.geburtsland);
+        EditText height = myView.findViewById(R.id.groesse);
+        EditText weight = myView.findViewById(R.id.gewicht);
+        EditText asa = myView.findViewById(R.id.asa);
+        EditText surgeryDate = myView.findViewById(R.id.surgDate);
+        EditText firstSurgeon = myView.findViewById(R.id.firstSurgeon);
+        EditText secondSurgeon = myView.findViewById(R.id.secSurgeon);
 
         pid.setText(p.getPatId() + "");
         firstName.setText(p.getFirstName());
-        secondName.setText(p.getSecondName());
+        secondName.setText(p.getSecondName() + " (" + p.getBirthName() + ")");
         if(p.getGender().equals('m')){
             male.setChecked(true);
         } else {
@@ -387,7 +393,9 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         ahv.setText(p.getAhvId());
         birthPlace.setText(p.getBirthPlace());
         birthCountry.setText(p.getBirthCountry());
-        birthName.setText(p.getBirthName());
+        weight.setText(p.getWeightInKg() + " kg");
+        height.setText(p.getHeightInCm() + " cm");
+        asa.setText(p.getAsa() + "");
     }
 
     /**

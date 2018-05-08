@@ -81,7 +81,7 @@ public class MasterDataActivity extends Fragment{
         try {
             while((nextValue = reader.readNext()) != null){
                 if(nextValue[0].equals(editPatId)){
-                    Patient p = new Patient(Integer.parseInt(editPatId), nextValue[1], nextValue[2], nextValue[3], nextValue[4], nextValue[5], nextValue[6], nextValue[7], nextValue[8], Integer.parseInt(nextValue[9]), Integer.parseInt(nextValue[10]), Boolean.parseBoolean(nextValue[11]));
+                    Patient p = new Patient(Integer.parseInt(editPatId), nextValue[1], nextValue[2], nextValue[3], nextValue[4], nextValue[5], nextValue[6], nextValue[7], nextValue[8], Integer.parseInt(nextValue[9]), Integer.parseInt(nextValue[10]), Boolean.parseBoolean(nextValue[11], Integer.parseInt(nextValue[12]));
                     p.setSurgeon();
                     return p;
                 }
@@ -139,10 +139,16 @@ public class MasterDataActivity extends Fragment{
         EditText birthPlace = myView.findViewById(R.id.geburtsort);
         EditText birthName = myView.findViewById(R.id.geburtsname);
         EditText birthCountry = myView.findViewById(R.id.geburtsland);
+        EditText height = myView.findViewById(R.id.groesse);
+        EditText weight = myView.findViewById(R.id.gewicht);
+        EditText asa = myView.findViewById(R.id.asa);
+        EditText surgeryDate = myView.findViewById(R.id.surgDate);
+        EditText firstSurgeon = myView.findViewById(R.id.firstSurgeon);
+        EditText secondSurgeon = myView.findViewById(R.id.secSurgeon);
 
         pid.setText(p.getPatId() + "");
         firstName.setText(p.getFirstName());
-        secondName.setText(p.getSecondName());
+        secondName.setText(p.getSecondName() + " (" + p.getBirthName() + ")");
         if(p.getGender().equals('m')){
             male.setChecked(true);
         } else {
@@ -152,6 +158,8 @@ public class MasterDataActivity extends Fragment{
         ahv.setText(p.getAhvId());
         birthPlace.setText(p.getBirthPlace());
         birthCountry.setText(p.getBirthCountry());
-        birthName.setText(p.getBirthName());
+        weight.setText(p.getWeightInKg() + " kg");
+        height.setText(p.getHeightInCm() + " cm");
+        asa.setText(p.getAsa() + "");
     }
 }

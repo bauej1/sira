@@ -28,8 +28,9 @@ public class Patient extends BaseObservable{
     private boolean isFemale = false;
     private Surgeon surgeon;
     private HPrimaryImplantData hprimImplantData;
+    private int asa;
 
-    public Patient(int patId, String firstName, String secondName, String gender, String birthdate, String ahvId, String birthName, String birthPlace, String birthCountry, int heightInCm, int weightInKg, boolean heightWeightUnknown) {
+    public Patient(int patId, String firstName, String secondName, String gender, String birthdate, String ahvId, String birthName, String birthPlace, String birthCountry, int heightInCm, int weightInKg, boolean heightWeightUnknown, int asa) {
         this.patId = patId;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -42,6 +43,7 @@ public class Patient extends BaseObservable{
         this.heightInCm = heightInCm;
         this.weightInKg = weightInKg;
         this.heightWeightUnknown = heightWeightUnknown;
+        this.asa = asa;
 
         if(gender.equals("f")){
             isFemale = true;
@@ -169,6 +171,14 @@ public class Patient extends BaseObservable{
     public void setHeightWeightUnknown(boolean heightWeightUnknown) {
         this.heightWeightUnknown = heightWeightUnknown;
         notifyPropertyChanged(BR.heightWeightUnknown);
+    }
+
+    @Bindable
+    public int getAsa(){ return asa; }
+
+    public void setAsa(int asa){
+        this.asa = asa;
+        notifyPropertyChanged(BR.asa);
     }
 
     public void setSurgeon(){
