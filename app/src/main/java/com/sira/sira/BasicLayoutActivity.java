@@ -4,12 +4,10 @@ import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.Button;
@@ -145,15 +143,11 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
         com.google.zxing.integration.android.IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         TextView scanContent = (TextView) findViewById(R.id.scan_content);
         ArrayList<String> scanArray = new ArrayList<>();
-        Log.d("got into activity", "got into activity");
 
         if (result != null) {
-            Log.d("log first if", "log first if");
             if (result.getContents() == null) {
-                Log.d("MainActivity", "Cancelled scan");
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {
-                Log.d("MainActivity", "Scanned");
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
                 //String scannedContent = result.getContents();
                 scannedContentFull = result.toString();
@@ -166,7 +160,6 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
                 dialogSaveScan();
             }
         } else {
-            Log.d("log second if", "log second if");
             // This is important, otherwise the result will not be passed to the fragment
             super.onActivityResult(requestCode, resultCode, data);
         }
