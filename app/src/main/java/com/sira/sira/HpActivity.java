@@ -38,9 +38,8 @@ public class HpActivity extends Fragment implements View.OnClickListener {
      */
     private static final int masterdataID = 2131427383;
     private static final int barcodeID = 2131427355;
-    private static final int aufnahme1ID = 2131427374;
-    private static final int aufnahme2ID = 2131427375;
-    private static final int op1ID = 2131427376;
+    private static final int aufnahme2ID = 2131427374;
+    private static final int op1ID = 2131427375; // may has to be changed to 5 lea
     private static final int op2ID = 2131427377;
     private static final int op3ID = 2131427378;
     /**
@@ -49,11 +48,9 @@ public class HpActivity extends Fragment implements View.OnClickListener {
     private int layoutId;
     private int masterdata = 0;
     private int barcodeLayout = 1;
-    private int hpLayoutAufnahme1 = 2;
-    private int hpLayoutAufnahme2 = 3;
-    private int hpLayoutOperation1 = 4;
-    private int hpLayoutOperation2 = 5;
-    private int hpLayoutOperation3 = 6;
+    private int hpLayoutAufnahme2 = 2;
+    private int hpLayoutOperation1 = 3;
+    private int hpLayoutOperation2 = 4;
     private View myView;
     private SharedPreferences sp;
     private Patient p;
@@ -94,18 +91,7 @@ public class HpActivity extends Fragment implements View.OnClickListener {
             return myView;
         }
 
-        if(layoutId == layouts.getResourceId(hpLayoutAufnahme1, 2)){
-            RadioGroup rgCharnley = (RadioGroup) myView.findViewById(R.id.hp_rb_charnley_group);
-            rgCharnley.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-                public void onCheckedChanged(RadioGroup rg, int checkedId){
-                    RadioButton checkedButton = (RadioButton) rg.findViewById(checkedId);
-                    p.getHPrimaryImplantData().setCharnleyClass(checkedButton.getText().subSequence(0, 2).toString());
-                    loadPatientToSharedPref(p, true);
-                }
-            });
-        }
-
-        if (layoutId == layouts.getResourceId(hpLayoutAufnahme2, 3)) {
+        if (layoutId == layouts.getResourceId(hpLayoutAufnahme2, 2)) {
             final RadioButton radioButtonDiagnosis = (RadioButton) myView.findViewById(R.id.hp_rb_diag_andDiag);
             radioButtonDiagnosis.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -135,14 +121,36 @@ public class HpActivity extends Fragment implements View.OnClickListener {
             rgPrevOP.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
                 public void onCheckedChanged(RadioGroup rg, int checkedId){
                     CheckBox checkedButton = (CheckBox) rg.findViewById(checkedId);
-                    Log.d("checkedButton", checkedButton.getText().toString() + "");
                     p.getHPrimaryImplantData().setPreviousSurgeries(checkedButton.getText().toString());
                     loadPatientToSharedPref(p, true);
                 }
             });
+
+            RadioGroup rgCharnley = (RadioGroup) myView.findViewById(R.id.hp_rb_charnley_group);
+            rgCharnley.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+                public void onCheckedChanged(RadioGroup rg, int checkedId){
+                    RadioButton checkedButton = (RadioButton) rg.findViewById(checkedId);
+                    p.getHPrimaryImplantData().setCharnleyClass(checkedButton.getText().toString());
+                    loadPatientToSharedPref(p, true);
+                }
+            });
+
+            final ImageButton buttonCharnleyInfo = (ImageButton) myView.findViewById(R.id.hp_ib_charnley_info);
+            final LinearLayout layoutCharnelyInformation = (LinearLayout) myView.findViewById(R.id.hp_ll_infoCharnley);
+
+            buttonCharnleyInfo.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view){
+                    if (layoutCharnelyInformation.getVisibility() == View.INVISIBLE){
+                        layoutCharnelyInformation.setVisibility(View.VISIBLE);
+                    } else {
+                        layoutCharnelyInformation.setVisibility(View.INVISIBLE);
+                    }
+                }
+            });
         }
 
-        if (layoutId == layouts.getResourceId(hpLayoutOperation1, 4)) {
+        if (layoutId == layouts.getResourceId(hpLayoutOperation1, 3)) {
             final RadioButton radioButtonIntervention = (RadioButton) myView.findViewById(R.id.hp_rb_eingr_andEingr);
             radioButtonIntervention.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -168,7 +176,7 @@ public class HpActivity extends Fragment implements View.OnClickListener {
             });
         }
 
-        if (layoutId == layouts.getResourceId(hpLayoutOperation2, 5)) {
+        if (layoutId == layouts.getResourceId(hpLayoutOperation2, 4)) {
             final CheckBox checkBoxSupplIntervention = (CheckBox) myView.findViewById(R.id.hp_cb_zusatzeingr_andere);
             checkBoxSupplIntervention.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -177,9 +185,6 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                 }
             });
 
-        }
-
-        if (layoutId == layouts.getResourceId(hpLayoutOperation3, 6)) {
             final ImageButton buttonInformation = (ImageButton) myView.findViewById(R.id.hp_ib_cement_info);
             final LinearLayout layoutInformation = (LinearLayout) myView.findViewById(R.id.hp_layout_infoCement);
 
@@ -193,7 +198,9 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                     }
                 }
             });
+
         }
+
         return myView;
     }
 
@@ -303,11 +310,11 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                 case masterdataID:
                     fillMasterDataFields();
                     break;
-                case aufnahme1ID:
-                    fillAufnahmeData1();
-                    break;
                 case aufnahme2ID:
                     fillAufnahmeData2();
+                    break;
+                case op1ID:
+                    fillOperationData1();
                     break;
             }
         }
@@ -316,29 +323,37 @@ public class HpActivity extends Fragment implements View.OnClickListener {
     /**
      * This method fills data from a patient object in the layout for Aufnahme1.
      */
-    private void fillAufnahmeData1(){
-        EditText height = myView.findViewById(R.id.hp_et_height);
-        EditText weight = myView.findViewById(R.id.hp_et_weight);
-        RadioGroup rgCharnley = myView.findViewById(R.id.hp_rb_charnley_group);
-
-        for(int i = 0; i < rgCharnley.getChildCount(); i++){
-            RadioButton button = (RadioButton) rgCharnley.getChildAt(i);
-
-            if(button.getText().subSequence(0,2).toString().equals(p.getHPrimaryImplantData().getCharnleyClass())){
-                button.setChecked(true);
-            }
-        }
-
-        height.setText(p.getHeightInCm() + "");
-        weight.setText(p.getWeightInKg() + "");
-    }
+//    private void fillAufnahmeData1(){
+//        EditText height = myView.findViewById(R.id.hp_et_height);
+//        EditText weight = myView.findViewById(R.id.hp_et_weight);
+//        RadioGroup rgCharnley = myView.findViewById(R.id.hp_rb_charnley_group);
+//
+//        for(int i = 0; i < rgCharnley.getChildCount(); i++){
+//            RadioButton button = (RadioButton) rgCharnley.getChildAt(i);
+//
+//            if(button.getText().subSequence(0,2).toString().equals(p.getHPrimaryImplantData().getCharnleyClass())){
+//                button.setChecked(true);
+//            }
+//        }
+//
+//        height.setText(p.getHeightInCm() + "");
+//        weight.setText(p.getWeightInKg() + "");
+//    }
 
     /**
      * This method fills data from a patient object in the layout for Aufnahme2.
      */
     private void fillAufnahmeData2(){
+        RadioGroup rgCharnley = myView.findViewById(R.id.hp_rb_charnley_group);
         RadioGroup rgDiagnosis = myView.findViewById(R.id.hp_rg_diagnose);
         RadioGroup rgPrevOP = myView.findViewById(R.id.hp_cb_vorhOP);
+
+        for(int i = 0; i < rgCharnley.getChildCount(); i++){
+            RadioButton button = (RadioButton) rgCharnley.getChildAt(i);
+            if(button.getText().toString().equals(p.getHPrimaryImplantData().getCharnleyClass())){
+                    button.setChecked(true);
+                }
+            }
 
         for(int i = 0; i < rgDiagnosis.getChildCount(); i++){
             RadioButton button = (RadioButton) rgDiagnosis.getChildAt(i);
@@ -350,14 +365,23 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         for(int i = 0; i < rgPrevOP.getChildCount(); i++){
             CheckBox box = (CheckBox) rgPrevOP.getChildAt(i);
 
-/*            Log.d("boxtext:", box.getText().toString() + "");
-            Log.d("data: ", p.getHPrimaryImplantData().getPreviousSurgeries(i) + "");*/
-
             if(box.getText().toString().equals(p.getHPrimaryImplantData().getPreviousSurgeries(i))){
                 box.setChecked(true);
             }
         }
 
+    }
+
+    private void fillOperationData1(){
+        RadioGroup rgIntervention = myView.findViewById(R.id.hp_rg_eingriff);
+        Log.d("interventionLog", p.getHPrimaryImplantData().getIntervention() + "");
+
+        for (int i = 0; i < rgIntervention.getChildCount(); i++){
+            RadioButton button = (RadioButton) rgIntervention.getChildAt(i);
+            if(button.getText().toString().equals(p.getHPrimaryImplantData().getIntervention())){
+                button.setChecked(true);
+            }
+        }
     }
 
     /**
@@ -394,7 +418,7 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         birthCountry.setText(p.getBirthCountry());
         weight.setText(p.getWeightInKg() + " kg");
         height.setText(p.getHeightInCm() + " cm");
-        asa.setText(p.getAsa() + "");
+        asa.setText("ASA: " + p.getAsa());
         surgeryDate.setText(p.getSurgeryDate());
         firstSurgeon.setText(p.getFirstSurgeon());
         secondSurgeon.setText(p.getSecondSurgeon());

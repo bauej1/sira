@@ -160,7 +160,7 @@ public class MasterDataActivity extends Fragment{
         birthCountry.setText(p.getBirthCountry());
         weight.setText(p.getWeightInKg() + " kg");
         height.setText(p.getHeightInCm() + " cm");
-        asa.setText(p.getAsa() + "");
+        asa.setText("ASA: " + p.getAsa());
         surgeryDate.setText(p.getSurgeryDate());
         firstSurgeon.setText(p.getFirstSurgeon());
         secondSurgeon.setText(p.getSecondSurgeon());
