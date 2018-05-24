@@ -39,7 +39,7 @@ public class HpActivity extends Fragment implements View.OnClickListener {
     private static final int masterdataID = 2131427383;
     private static final int barcodeID = 2131427355;
     private static final int aufnahme2ID = 2131427374;
-    private static final int op1ID = 2131427376; // may has to be changed to 5 lea
+    private static final int op1ID = 2131427375; // may has to be changed to 5 lea
     private static final int op2ID = 2131427377;
     private static final int op3ID = 2131427378;
     /**
@@ -313,6 +313,9 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                 case aufnahme2ID:
                     fillAufnahmeData2();
                     break;
+                case op1ID:
+                    fillOperationData1();
+                    break;
             }
         }
     }
@@ -367,6 +370,18 @@ public class HpActivity extends Fragment implements View.OnClickListener {
             }
         }
 
+    }
+
+    private void fillOperationData1(){
+        RadioGroup rgIntervention = myView.findViewById(R.id.hp_rg_eingriff);
+        Log.d("interventionLog", p.getHPrimaryImplantData().getIntervention() + "");
+
+        for (int i = 0; i < rgIntervention.getChildCount(); i++){
+            RadioButton button = (RadioButton) rgIntervention.getChildAt(i);
+            if(button.getText().toString().equals(p.getHPrimaryImplantData().getIntervention())){
+                button.setChecked(true);
+            }
+        }
     }
 
     /**

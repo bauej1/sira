@@ -78,6 +78,7 @@
                         android:fontFamily="sans-serif-light"/>
 
                     <RadioGroup
+                        android:id="@+id/hp_rg_eingriff"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
