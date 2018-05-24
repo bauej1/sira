@@ -51,11 +51,8 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
             return;
         }
 
-/*        try {
-            ServerConnector.connectToServer(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+        ServerConnector connector = new ServerConnector();
+        connector.execute(this);
 
         hipLayouts = getResources().obtainTypedArray(R.array.hiplayouts);
 
