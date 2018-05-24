@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import com.google.zxing.integration.android.*;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.shuhart.stepview.StepView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -48,6 +50,12 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
         if(savedInstanceState !=  null){
             return;
         }
+
+/*        try {
+            ServerConnector.connectToServer(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
 
         hipLayouts = getResources().obtainTypedArray(R.array.hiplayouts);
 

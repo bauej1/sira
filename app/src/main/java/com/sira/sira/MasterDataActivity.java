@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -98,6 +99,7 @@ public class MasterDataActivity extends Fragment{
      */
     private CSVReader getDummyDataFile(){
         File file = new File(Environment.getExternalStorageDirectory() + "/Documents/dummyPatients.csv");
+
         try {
             return new CSVReader(new FileReader(file.getAbsolutePath()));
         } catch (FileNotFoundException e) {

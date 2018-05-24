@@ -407,7 +407,8 @@ public class HpActivity extends Fragment implements View.OnClickListener {
      *
      * @param p - Patient
      */
-    private void loadPatientToSharedPref(Patient p, boolean patientLoaded){
+    private void
+    loadPatientToSharedPref(Patient p, boolean patientLoaded){
         sp = getContext().getSharedPreferences("patientData", Context.MODE_PRIVATE);
         editor = sp.edit();
 
