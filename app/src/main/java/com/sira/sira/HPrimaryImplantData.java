@@ -2,6 +2,7 @@ package com.sira.sira;
 
 import android.util.Log;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -19,10 +20,10 @@ public class HPrimaryImplantData {
     private String accessDirection;
     private String position;
     private String fixation;
-    private String[] additionalInterventions;
+    private ArrayList<String> additionalInterventions = new ArrayList<>();
     private int cementingType;
 
-    public HPrimaryImplantData(String charnleyClass, String diagnosis, ArrayList<String> previousSurgeries, String asaState, String intervention, String accessDirection, String position, String fixation, String[] additionalInterventions, int cementingType) {
+    public HPrimaryImplantData(String charnleyClass, String diagnosis, ArrayList<String> previousSurgeries, String asaState, String intervention, String accessDirection, String position, String fixation, ArrayList<String> additionalInterventions, int cementingType) {
         this.charnleyClass = charnleyClass;
         this.diagnosis = diagnosis;
         this.previousSurgeries = previousSurgeries;
@@ -110,12 +111,19 @@ public class HPrimaryImplantData {
         this.fixation = fixation;
     }
 
-    public String[] getAdditionalInterventions() {
-        return additionalInterventions;
+    public String getAdditionalInterventions(int i) {
+        if(additionalInterventions.size() > 0){
+            return additionalInterventions.get(i);
+        }
+        return null;
     }
 
-    public void setAdditionalInterventions(String[] additionalInterventions) {
-        this.additionalInterventions = additionalInterventions;
+    public void setAdditionalInterventions(String additionalIntervention) {
+        this.additionalInterventions.add(additionalIntervention);
+    }
+
+    public int getAdditionalInterventionSize(){
+        return additionalInterventions.size();
     }
 
     public int getCementingType() {
