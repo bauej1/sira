@@ -62,8 +62,11 @@ public class HPrimaryImplantData {
         return null;
     }
 
+    public int getPreviousSurgeriesSize(){
+        return previousSurgeries.size();
+    }
+
     public void setPreviousSurgeries(String previousSurgeries) {
-        Log.d("prevsurg", previousSurgeries);
         this.previousSurgeries.add(previousSurgeries);
     }
 

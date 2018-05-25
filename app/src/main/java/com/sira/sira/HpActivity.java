@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -25,6 +26,7 @@ import com.google.zxing.client.android.Intents;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.util.ArrayList;
 
 
 /**
@@ -72,7 +74,6 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         }
 
         myView = inflater.inflate(layoutId, container, false);
-        Log.d("layoutId", layoutId + "");
         fillLayoutData(layoutId);
 
         if (layoutId == layouts.getResourceId(barcodeLayout, 1)) {
@@ -93,11 +94,93 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         }
 
         if (layoutId == layouts.getResourceId(hpLayoutAufnahme2, 2)) {
+            //Diagnosis =============================================================================================================
+            RadioGroup rgDiagnosis = (RadioGroup) myView.findViewById(R.id.hp_rg_diagnose);
+            rgDiagnosis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+                public void onCheckedChanged(RadioGroup rg, int checkedId){
+                    RadioButton checkedButton = (RadioButton) rg.findViewById(checkedId);
+                    p.getHPrimaryImplantData().setDiagnosis(checkedButton.getText().toString());
+                    loadPatientToSharedPref(p, true);
+                }
+            });
+
             final RadioButton radioButtonDiagnosis = (RadioButton) myView.findViewById(R.id.hp_rb_diag_andDiag);
             radioButtonDiagnosis.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     createDialogBoxRB(getResources().getString(R.string.eingabeAndereDiag), radioButtonDiagnosis);
+                }
+            });
+
+            //Previous Surgery ======================================================================================================
+            CheckBox cb1 = myView.findViewById(R.id.hp_cb_vorhOP_keine);
+            cb1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    p.getHPrimaryImplantData().setPreviousSurgeries(compoundButton.getText().toString());
+                    loadPatientToSharedPref(p, true);
+                }
+            });
+
+            CheckBox cb2 = myView.findViewById(R.id.hp_cb_vorhOP_arthrodese);
+            cb2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    p.getHPrimaryImplantData().setPreviousSurgeries(compoundButton.getText().toString());
+                    loadPatientToSharedPref(p, true);
+                }
+            });
+
+            CheckBox cb3 = myView.findViewById(R.id.hp_cb_vorhOP_huftarthro);
+            cb3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    p.getHPrimaryImplantData().setPreviousSurgeries(compoundButton.getText().toString());
+                }
+            });
+
+            CheckBox cb4 = myView.findViewById(R.id.hp_cb_vorhOP_ostFem);
+            cb4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    p.getHPrimaryImplantData().setPreviousSurgeries(compoundButton.getText().toString());
+                    loadPatientToSharedPref(p, true);
+                }
+            });
+
+            CheckBox cb5 = myView.findViewById(R.id.hp_cb_vorhOP_ostBeck);
+            cb5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    p.getHPrimaryImplantData().setPreviousSurgeries(compoundButton.getText().toString());
+                    loadPatientToSharedPref(p, true);
+                }
+            });
+
+            CheckBox cb6 = myView.findViewById(R.id.hp_cb_vorhOP_andOP);
+            cb6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    p.getHPrimaryImplantData().setPreviousSurgeries(compoundButton.getText().toString());
+                    loadPatientToSharedPref(p, true);
+                }
+            });
+
+            CheckBox cb7 = myView.findViewById(R.id.hp_cb_vorhOP_ostsAcet);
+            cb7.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    p.getHPrimaryImplantData().setPreviousSurgeries(compoundButton.getText().toString());
+                    loadPatientToSharedPref(p, true);
+                }
+            });
+
+            CheckBox cb8 = myView.findViewById(R.id.hp_cb_vorhOP_ostsFem);
+            cb8.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    p.getHPrimaryImplantData().setPreviousSurgeries(compoundButton.getText().toString());
+                    loadPatientToSharedPref(p, true);
                 }
             });
 
@@ -109,23 +192,9 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                 }
             });
 
-            RadioGroup rgDiagnosis = (RadioGroup) myView.findViewById(R.id.hp_rg_diagnose);
-            rgDiagnosis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-                public void onCheckedChanged(RadioGroup rg, int checkedId){
-                    RadioButton checkedButton = (RadioButton) rg.findViewById(checkedId);
-                    p.getHPrimaryImplantData().setDiagnosis(checkedButton.getText().toString());
-                    loadPatientToSharedPref(p, true);
-                }
-            });
-
-            RadioGroup rgPrevOP = (RadioGroup) myView.findViewById(R.id.hp_cb_vorhOP);
-            rgPrevOP.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-                public void onCheckedChanged(RadioGroup rg, int checkedId){
-                    CheckBox checkedButton = (CheckBox) rg.findViewById(checkedId);
-                    p.getHPrimaryImplantData().setPreviousSurgeries(checkedButton.getText().toString());
-                    loadPatientToSharedPref(p, true);
-                }
-            });
+            //Charnley Class =======================================================================================================
+            final ImageButton buttonCharnleyInfo = (ImageButton) myView.findViewById(R.id.hp_ib_charnley_info);
+            final LinearLayout layoutCharnelyInformation = (LinearLayout) myView.findViewById(R.id.hp_ll_infoCharnley);
 
             RadioGroup rgCharnley = (RadioGroup) myView.findViewById(R.id.hp_rb_charnley_group);
             rgCharnley.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
@@ -135,9 +204,6 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                     loadPatientToSharedPref(p, true);
                 }
             });
-
-            final ImageButton buttonCharnleyInfo = (ImageButton) myView.findViewById(R.id.hp_ib_charnley_info);
-            final LinearLayout layoutCharnelyInformation = (LinearLayout) myView.findViewById(R.id.hp_ll_infoCharnley);
 
             buttonCharnleyInfo.setOnClickListener(new View.OnClickListener(){
                 @Override
@@ -297,8 +363,6 @@ public class HpActivity extends Fragment implements View.OnClickListener {
             patientLoaded = true;
         }
 
-        Log.d("patientLoaded", patientLoaded + "");
-
         p = gson.fromJson(json, Patient.class);
     }
 
@@ -325,26 +389,6 @@ public class HpActivity extends Fragment implements View.OnClickListener {
     }
 
     /**
-     * This method fills data from a patient object in the layout for Aufnahme1.
-     */
-//    private void fillAufnahmeData1(){
-//        EditText height = myView.findViewById(R.id.hp_et_height);
-//        EditText weight = myView.findViewById(R.id.hp_et_weight);
-//        RadioGroup rgCharnley = myView.findViewById(R.id.hp_rb_charnley_group);
-//
-//        for(int i = 0; i < rgCharnley.getChildCount(); i++){
-//            RadioButton button = (RadioButton) rgCharnley.getChildAt(i);
-//
-//            if(button.getText().subSequence(0,2).toString().equals(p.getHPrimaryImplantData().getCharnleyClass())){
-//                button.setChecked(true);
-//            }
-//        }
-//
-//        height.setText(p.getHeightInCm() + "");
-//        weight.setText(p.getWeightInKg() + "");
-//    }
-
-    /**
      * This method fills data from a patient object in the layout for Aufnahme2.
      */
     private void fillAufnahmeData2(){
@@ -368,9 +412,12 @@ public class HpActivity extends Fragment implements View.OnClickListener {
 
         for(int i = 0; i < rgPrevOP.getChildCount(); i++){
             CheckBox box = (CheckBox) rgPrevOP.getChildAt(i);
+            int storedSurgerySize = p.getHPrimaryImplantData().getPreviousSurgeriesSize();
 
-            if(box.getText().toString().equals(p.getHPrimaryImplantData().getPreviousSurgeries(i))){
-                box.setChecked(true);
+            for(int j = 0; j < storedSurgerySize; j++){
+                if(box.getText().toString().equals(p.getHPrimaryImplantData().getPreviousSurgeries(j))){
+                    box.setChecked(true);
+                }
             }
         }
 
