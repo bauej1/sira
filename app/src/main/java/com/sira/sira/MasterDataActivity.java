@@ -47,6 +47,7 @@ public class MasterDataActivity extends Fragment{
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent){
                 if (i == EditorInfo.IME_ACTION_DONE) {
+                    isPatIdValid(patId.getText().toString());
                     p = getPatientData(patId.getText().toString());
                     patientLoaded = true;
                     loadPatientToSharedPref(p, patientLoaded);
@@ -57,6 +58,14 @@ public class MasterDataActivity extends Fragment{
         });
 
         return myView;
+    }
+
+    private boolean isPatIdValid(String enteredPatId){
+        int id = Integer.parseInt(enteredPatId);
+        if(id < 10000){ //Jan --> Maybe check some other constraints and mark the input field red or something like that..
+            return false;
+        }
+        return true;
     }
 
     @Override

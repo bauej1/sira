@@ -29,6 +29,8 @@ public class ServerConnector extends AsyncTask<Context, Void, Long>{
      * Connects the SIRA App to the memdoc Server and checks if the connection is valid.
      * As a response the authentification token is returned by the Server
      *
+     * @param context - the App Context
+     * @throws JSONException
      */
     public void loginToServer(Context context) throws JSONException {
 
@@ -59,6 +61,12 @@ public class ServerConnector extends AsyncTask<Context, Void, Long>{
         requestQueue.add(jsonRequest);
     }
 
+    /**
+     * Gets username and password for the SIRIS Server.
+     *
+     * @return cred - JSON Object
+     * @throws JSONException
+     */
     private JSONObject getCredentials() throws JSONException {
         JSONObject cred = new JSONObject();
         cred.put("username", username);

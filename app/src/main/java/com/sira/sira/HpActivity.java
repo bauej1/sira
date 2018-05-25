@@ -36,7 +36,7 @@ public class HpActivity extends Fragment implements View.OnClickListener {
     /**
      * All the ID Constants are used for static referencing to the layouts from the R.array.hiplayouts.
      */
-    private static final int masterdataID = 2131427383;
+    private static final int masterdataID = 2131427381;
     private static final int barcodeID = 2131427355;
     private static final int aufnahme2ID = 2131427374;
     private static final int op1ID = 2131427375; // may has to be changed to 5 lea
@@ -72,6 +72,7 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         }
 
         myView = inflater.inflate(layoutId, container, false);
+        Log.d("layoutId", layoutId + "");
         fillLayoutData(layoutId);
 
         if (layoutId == layouts.getResourceId(barcodeLayout, 1)) {
@@ -295,6 +296,9 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         if(sp.getBoolean("loaded", false) == true) {
             patientLoaded = true;
         }
+
+        Log.d("patientLoaded", patientLoaded + "");
+
         p = gson.fromJson(json, Patient.class);
     }
 

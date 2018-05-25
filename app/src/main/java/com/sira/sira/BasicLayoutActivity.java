@@ -51,6 +51,7 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
             return;
         }
 
+        //Login to SIRIS Server
         ServerConnector connector = new ServerConnector();
         connector.execute(this);
 
