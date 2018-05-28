@@ -36,12 +36,7 @@ public class BodyMainActivity extends AppCompatActivity{
         knee_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent hipIntent = new Intent(BodyMainActivity.this, BodySideActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("bodypart", "k");
-                hipIntent.putExtras(bundle);
-                startActivity(hipIntent);
-                finish();
+                //Knee formular comes here
             }
         });
     }

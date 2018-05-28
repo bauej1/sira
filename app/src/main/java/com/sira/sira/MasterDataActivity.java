@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,7 @@ public class MasterDataActivity extends Fragment{
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent){
                 if (i == EditorInfo.IME_ACTION_DONE) {
+                    isPatIdValid(patId.getText().toString());
                     p = getPatientData(patId.getText().toString());
                     patientLoaded = true;
                     loadPatientToSharedPref(p, patientLoaded);
@@ -56,6 +58,14 @@ public class MasterDataActivity extends Fragment{
         });
 
         return myView;
+    }
+
+    private boolean isPatIdValid(String enteredPatId){
+        int id = Integer.parseInt(enteredPatId);
+        if(id < 10000){ //Jan --> Maybe check some other constraints and mark the input field red or something like that..
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -98,6 +108,7 @@ public class MasterDataActivity extends Fragment{
      */
     private CSVReader getDummyDataFile(){
         File file = new File(Environment.getExternalStorageDirectory() + "/Documents/dummyPatients.csv");
+
         try {
             return new CSVReader(new FileReader(file.getAbsolutePath()));
         } catch (FileNotFoundException e) {
