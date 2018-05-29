@@ -40,8 +40,8 @@ public class HpActivity extends Fragment implements View.OnClickListener {
      */
     private static final int masterdataID = 2131427381;
     private static final int aufnahme2ID = 2131427374;
-    private static final int op1ID = 2131427375;
-    private static final int op2ID = 2131427376;
+    private static final int op1ID = 2131427376;
+    private static final int op2ID = 2131427377;
     /**
      * ===============================================================================================
      */

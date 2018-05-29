@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/finishedView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/hp_tv_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="@string/upload"
+        android:textColor="@color/text"
+        android:textSize="20dp"
+        android:layout_gravity="center"/>
+
+    <ImageButton
+        android:id="@+id/hp_uploadButton"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_file_upload_white_24dp"
+        android:background="@color/colorAccent"/>
+
+    <com.dd.CircularProgressButton
+        android:id="@+id/circularButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cpb_white"
+        android:textSize="18sp"
+        android:background="@drawable/circle"
+        app:cpb_cornerRadius="100dp"/>
+        <!--app:cpb_iconComplete="@drawable/ic_action_accept"-->
+        <!--app:cpb_iconError="@drawable/ic_action_cancel"-->
+        <!--app:cpb_textIdle="@string/Upload" />-->
+</LinearLayout>
