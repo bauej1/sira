@@ -71,8 +71,6 @@ public class HpActivity extends Fragment implements View.OnClickListener {
             layoutId = 0;
         }
 
-        Log.d("layoutId", layoutId+ "");
-
         myView = inflater.inflate(layoutId, container, false);
         fillLayoutData(layoutId);
 
@@ -338,9 +336,33 @@ public class HpActivity extends Fragment implements View.OnClickListener {
             });
 
             //Fixation ==============================================================================================================
-
+            RadioGroup rgFixation = (RadioGroup) myView.findViewById(R.id.hp_rb_fixation);
+            rgFixation.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+                public void onCheckedChanged(RadioGroup rg, int checkedId){
+                    RadioButton checkedButton = (RadioButton) rg.findViewById(checkedId);
+                    p.getHPrimaryImplantData().setFixation(checkedButton.getText().toString());
+                    loadPatientToSharedPref(p, true);
+                }
+            });
 
             //Zementiertechnik =======================================================================================================
+
+            RadioGroup rgZementtechnik = (RadioGroup) myView.findViewById(R.id.hp_rb_zementiertechnik);
+            rgZementtechnik.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+                public void onCheckedChanged(RadioGroup rg, int checkedId){
+                    RadioButton checkedButton = (RadioButton) rg.findViewById(checkedId);
+                    int zementTechnikId;
+                    if(checkedButton.getText().toString().equals("erste Generation")){
+                        zementTechnikId = 1;
+                    } else if(checkedButton.getText().toString().equals("zweite Generation")){
+                        zementTechnikId = 2;
+                    } else {
+                        zementTechnikId = 3;
+                    }
+                    p.getHPrimaryImplantData().setCementingType(zementTechnikId);
+                    loadPatientToSharedPref(p, true);
+                }
+            });
 
             final ImageButton buttonInformation = (ImageButton) myView.findViewById(R.id.hp_ib_cement_info);
             final LinearLayout layoutInformation = (LinearLayout) myView.findViewById(R.id.hp_layout_infoCement);
@@ -545,6 +567,8 @@ public class HpActivity extends Fragment implements View.OnClickListener {
 
     private void fillOperationData2(){
         RadioGroup rgAdditionalInterventions = myView.findViewById(R.id.hp_rg_addInterventions);
+        RadioGroup rgZementierTechnik = myView.findViewById(R.id.hp_rb_zementiertechnik);
+        RadioGroup rgFixation = myView.findViewById(R.id.hp_rb_fixation);
 
         for(int i = 0; i < rgAdditionalInterventions.getChildCount(); i++){
             CheckBox box = (CheckBox) rgAdditionalInterventions.getChildAt(i);
@@ -554,6 +578,29 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                 if(box.getText().toString().equals(p.getHPrimaryImplantData().getAdditionalInterventions(j))){
                     box.setChecked(true);
                 }
+            }
+        }
+
+        for (int i = 0; i < rgZementierTechnik.getChildCount(); i++){
+            RadioButton button = (RadioButton) rgZementierTechnik.getChildAt(i);
+            String buttonLabel = "";
+            if(p.getHPrimaryImplantData().getCementingType() == 1){
+                buttonLabel = "erste Generation";
+            } else if (p.getHPrimaryImplantData().getCementingType() == 2){
+                buttonLabel = "zweite Generation";
+            } else if (p.getHPrimaryImplantData().getCementingType() == 3){
+                buttonLabel = "dritte Generation";
+            }
+
+            if(button.getText().toString().equals(buttonLabel)){
+                button.setChecked(true);
+            }
+        }
+
+        for (int i = 0; i < rgFixation.getChildCount(); i++){
+            RadioButton button = (RadioButton) rgFixation.getChildAt(i);
+            if(button.getText().toString().equals(p.getHPrimaryImplantData().getFixation())){
+                button.setChecked(true);
             }
         }
     }
