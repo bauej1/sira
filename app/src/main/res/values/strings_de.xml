@@ -156,4 +156,5 @@
     <string name="dialog_barcodeScan">Möchten Sie den folgenden eingescannten Barcode übernehmen?</string>
     <string name="m">m</string>
     <string name="f">f</string>
+    <string name="upload">Bitte klicken Sie auf den Button, um Ihre Daten auf den Server hochzuladen</string>
 </resources>
