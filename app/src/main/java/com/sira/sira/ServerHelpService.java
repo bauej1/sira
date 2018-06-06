@@ -49,7 +49,7 @@ public class ServerHelpService {
      * Concat the uploadUrl with important parameters like saveinc and autosubmit.
      * Loads the .xml file to the SIRIS server.
      */
-    public static void loadIntoServer(){
+    public static void loadIntoServer(final VolleyCallback callback){
         uploadUrl = uploadUrl + "token="+token+"&saveinc="+saveInc+"&autosubmit="+autoSubmit;
 
         StringRequest stringRequest = new StringRequest(
@@ -59,6 +59,7 @@ public class ServerHelpService {
                     @Override
                     public void onResponse(String response) {
                         Log.d("Response from Server", "response: " + response.toString());
+                        callback.onSuccessResponse(response);
                     }
                 },
                 new Response.ErrorListener() {

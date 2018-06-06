@@ -395,7 +395,12 @@ public class HpActivity extends Fragment implements View.OnClickListener {
 //                        e.printStackTrace();
 //                    }
                     ServerHelpService.initRequestQueue();
-                    ServerHelpService.loadIntoServer();
+                    ServerHelpService.loadIntoServer(new VolleyCallback() {
+                        @Override
+                        public void onSuccessResponse(String result) {
+
+                        }
+                    });
                 }
             });
         }
