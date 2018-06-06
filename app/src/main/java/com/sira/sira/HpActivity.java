@@ -18,6 +18,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -390,6 +391,8 @@ public class HpActivity extends Fragment implements View.OnClickListener {
             final ImageButton bUpload = (ImageButton) myView.findViewById(R.id.hp_uploadButton);
             final ProgressBar progressBar = (ProgressBar) myView.findViewById(R.id.hp_progressBar);
             final TextView infoUploadLabel = (TextView) myView.findViewById(R.id.hp_tv_upload);
+            final ImageView responseImage = (ImageView) myView.findViewById(R.id.responseImage);
+            final TextView responseText = (TextView) myView.findViewById(R.id.responseText);
 
             bUpload.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -405,16 +408,20 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                     ServerHelpService.loadIntoServer(new VolleyCallback() {
                         @Override
                         public void onSuccessResponse(String result) {
-
+                            progressBar.setVisibility(View.INVISIBLE);
+                            responseImage.setVisibility(View.VISIBLE);
+                            responseImage.setImageResource(R.drawable.ic_check_circle_white_100dp);
+                            responseText.setText(R.string.uploadSuccessful);
                         }
 
                         @Override
                         public void onErrorResponse(String error) {
-
+                            progressBar.setVisibility(View.INVISIBLE);
+                            responseImage.setVisibility(View.VISIBLE);
+                            responseImage.setImageResource(R.drawable.ic_highlight_off_white_100dp);
+                            responseText.setText(R.string.uploadNotSuccessful);
                         }
                     });
-
-
 
                     progressBar.setVisibility(View.VISIBLE);
                     bUpload.setVisibility(View.INVISIBLE);
