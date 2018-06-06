@@ -409,6 +409,8 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                         }
                     });
 
+
+
                     progressBar.setVisibility(View.VISIBLE);
                     bUpload.setVisibility(View.INVISIBLE);
                     infoUploadLabel.setVisibility(View.INVISIBLE);
