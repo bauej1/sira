@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class HPrimaryImplantData {
 
     private String charnleyClass;
-    private String diagnosis;
+    private String IV_PATHOLOGY_QUESTION;
     private ArrayList<String> previousSurgeries = new ArrayList<>();
     private String asaState;
     private String intervention;
@@ -22,10 +22,14 @@ public class HPrimaryImplantData {
     private String fixation;
     private ArrayList<String> additionalInterventions = new ArrayList<>();
     private int cementingType;
+    //private boolean HEIGHT_WEIGHT_UNKNOWN = false;
+    private int HEIGHT;
+    private int WEIGHT;
+    private int MORBIDITY_STATE;
 
-    public HPrimaryImplantData(String charnleyClass, String diagnosis, ArrayList<String> previousSurgeries, String asaState, String intervention, String accessDirection, String position, String fixation, ArrayList<String> additionalInterventions, int cementingType) {
+    public HPrimaryImplantData(String charnleyClass, String diagnosis, ArrayList<String> previousSurgeries, String asaState, String intervention, String accessDirection, String position, String fixation, ArrayList<String> additionalInterventions, int cementingType, boolean heightWeightUnknown) {
         this.charnleyClass = charnleyClass;
-        this.diagnosis = diagnosis;
+        this.IV_PATHOLOGY_QUESTION = diagnosis;
         this.previousSurgeries = previousSurgeries;
         this.asaState = asaState;
         this.intervention = intervention;
@@ -34,6 +38,7 @@ public class HPrimaryImplantData {
         this.fixation = fixation;
         this.additionalInterventions = additionalInterventions;
         this.cementingType = cementingType;
+        //this.HEIGHT_WEIGHT_UNKNOWN = heightWeightUnknown;
     }
 
     public HPrimaryImplantData(){
@@ -49,11 +54,11 @@ public class HPrimaryImplantData {
     }
 
     public String getDiagnosis() {
-        return diagnosis;
+        return IV_PATHOLOGY_QUESTION;
     }
 
     public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
+        this.IV_PATHOLOGY_QUESTION = diagnosis;
     }
 
     public String getPreviousSurgeries(int i) {
@@ -132,5 +137,36 @@ public class HPrimaryImplantData {
 
     public void setCementingType(int cementingType) {
         this.cementingType = cementingType;
+    }
+
+//    public boolean isHeightWeightUnknown() {
+//        return HEIGHT_WEIGHT_UNKNOWN;
+//    }
+//
+//    public void setHeightWeightUnknown(boolean heightWeightUnknown) {
+//        this.HEIGHT_WEIGHT_UNKNOWN = heightWeightUnknown;
+//    }
+    public int getHEIGHT() {
+        return HEIGHT;
+    }
+
+    public void setHEIGHT(int HEIGHT) {
+        this.HEIGHT = HEIGHT;
+    }
+
+    public int getWEIGHT() {
+        return WEIGHT;
+    }
+
+    public void setWEIGHT(int WEIGHT) {
+        this.WEIGHT = WEIGHT;
+    }
+
+    public int getMORBIDITY_STATE() {
+        return MORBIDITY_STATE;
+    }
+
+    public void setMORBIDITY_STATE(int MORBIDITY_STATE) {
+        this.MORBIDITY_STATE = MORBIDITY_STATE;
     }
 }

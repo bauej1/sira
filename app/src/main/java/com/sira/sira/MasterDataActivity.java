@@ -90,7 +90,7 @@ public class MasterDataActivity extends Fragment{
         try {
             while((nextValue = reader.readNext()) != null){
                 if(nextValue[0].equals(editPatId)){
-                    Patient p = new Patient(Integer.parseInt(editPatId), nextValue[1], nextValue[2], nextValue[3], nextValue[4], nextValue[5], nextValue[6], nextValue[7], nextValue[8], Integer.parseInt(nextValue[9]), Integer.parseInt(nextValue[10]), Boolean.parseBoolean(nextValue[11]), Integer.parseInt(nextValue[12]), nextValue[13], nextValue[14], nextValue[15]);
+                    Patient p = new Patient(Integer.parseInt(editPatId), nextValue[1], nextValue[2], nextValue[3], nextValue[4], nextValue[5], nextValue[6], nextValue[7], nextValue[8], Integer.parseInt(nextValue[9]), Integer.parseInt(nextValue[10]), Integer.parseInt(nextValue[11]), nextValue[12], nextValue[13], nextValue[14]);
                     return p;
                 }
             }
@@ -164,11 +164,11 @@ public class MasterDataActivity extends Fragment{
         }
         birthdate.setText(p.getBirthdate());
         ahv.setText(p.getAhvId());
-        birthPlace.setText(p.getBirthPlace());
+        birthPlace.setText(p.getCityofbirth());
         birthCountry.setText(p.getBirthCountry());
         weight.setText(p.getWeightInKg() + " kg");
         height.setText(p.getHeightInCm() + " cm");
-        asa.setText("ASA: " + p.getAsa());
+        asa.setText("ASA: " + p.getHPrimaryImplantData().getMORBIDITY_STATE());
         surgeryDate.setText(p.getSurgeryDate());
         firstSurgeon.setText(p.getFirstSurgeon());
         secondSurgeon.setText(p.getSecondSurgeon());
