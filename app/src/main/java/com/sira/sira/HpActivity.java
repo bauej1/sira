@@ -400,6 +400,11 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                         public void onSuccessResponse(String result) {
 
                         }
+
+                        @Override
+                        public void onErrorResponse(String error) {
+
+                        }
                     });
                 }
             });

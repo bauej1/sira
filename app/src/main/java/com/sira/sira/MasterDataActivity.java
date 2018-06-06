@@ -166,8 +166,8 @@ public class MasterDataActivity extends Fragment{
         ahv.setText(p.getAhvId());
         birthPlace.setText(p.getCityofbirth());
         birthCountry.setText(p.getBirthCountry());
-        weight.setText(p.getWeightInKg() + " kg");
-        height.setText(p.getHeightInCm() + " cm");
+        weight.setText(p.getHPrimaryImplantData().getWEIGHT() + " kg");
+        height.setText(p.getHPrimaryImplantData().getHEIGHT() + " cm");
         asa.setText("ASA: " + p.getHPrimaryImplantData().getMORBIDITY_STATE());
         surgeryDate.setText(p.getSurgeryDate());
         firstSurgeon.setText(p.getFirstSurgeon());
