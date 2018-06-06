@@ -11,7 +11,7 @@
         android:id="@+id/hp_tv_upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="240dp"
         android:text="@string/upload"
         android:textColor="@color/text"
         android:textSize="20dp"
@@ -19,22 +19,20 @@
 
     <ImageButton
         android:id="@+id/hp_uploadButton"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center"
-        android:src="@drawable/ic_file_upload_white_24dp"
-        android:background="@color/colorAccent"/>
+        android:src="@drawable/ic_file_upload_white_45dp"
+        android:background="@drawable/button_round"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"/>
 
-    <com.dd.CircularProgressButton
-        android:id="@+id/circularButton1"
+    <ProgressBar
+        android:id="@+id/hp_progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/cpb_white"
-        android:textSize="18sp"
-        android:background="@drawable/circle"
-        app:cpb_cornerRadius="100dp"/>
-        <!--app:cpb_iconComplete="@drawable/ic_action_accept"-->
-        <!--app:cpb_iconError="@drawable/ic_action_cancel"-->
-        <!--app:cpb_textIdle="@string/Upload" />-->
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
 </LinearLayout>
