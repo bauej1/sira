@@ -22,11 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.google.gson.Gson;
-import com.google.zxing.client.android.Intents;
 import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
-
-import java.util.ArrayList;
 
 
 /**
@@ -40,6 +36,7 @@ public class HpActivity extends Fragment implements View.OnClickListener {
      */
     private static final int masterdataID = 2131427381;
     private static final int aufnahme2ID = 2131427374;
+    private static final int finishedID = 2131427375;
     private static final int op1ID = 2131427376;
     private static final int op2ID = 2131427377;
     /**
@@ -51,6 +48,8 @@ public class HpActivity extends Fragment implements View.OnClickListener {
     private int hpLayoutAufnahme2 = 2;
     private int hpLayoutOperation1 = 3;
     private int hpLayoutOperation2 = 4;
+    private int hpLayoutFinished = 5;
+
     private View myView;
     private SharedPreferences sp;
     private Patient p;
@@ -71,7 +70,7 @@ public class HpActivity extends Fragment implements View.OnClickListener {
             layoutId = 0;
         }
 
-        Log.d("layoutId", layoutId+ "");
+        Log.d("layoutId", layoutId+"");
 
         myView = inflater.inflate(layoutId, container, false);
         fillLayoutData(layoutId);
@@ -95,11 +94,11 @@ public class HpActivity extends Fragment implements View.OnClickListener {
 
         if (layoutId == layouts.getResourceId(hpLayoutAufnahme2, 2)) {
             //Diagnosis =============================================================================================================
-            RadioGroup rgDiagnosis = (RadioGroup) myView.findViewById(R.id.hp_rg_diagnose);
+            final RadioGroup rgDiagnosis = (RadioGroup) myView.findViewById(R.id.hp_rg_diagnose);
             rgDiagnosis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
                 public void onCheckedChanged(RadioGroup rg, int checkedId){
-                    RadioButton checkedButton = (RadioButton) rg.findViewById(checkedId);
-                    p.getHPrimaryImplantData().setDiagnosis(checkedButton.getText().toString());
+                    int index = rgDiagnosis.indexOfChild(myView.findViewById(rgDiagnosis.getCheckedRadioButtonId())) + 1;
+                    p.getHPrimaryImplantData().setDiagnosis(index + "");
                     loadPatientToSharedPref(p, true);
                 }
             });
@@ -338,9 +337,33 @@ public class HpActivity extends Fragment implements View.OnClickListener {
             });
 
             //Fixation ==============================================================================================================
-
+            RadioGroup rgFixation = (RadioGroup) myView.findViewById(R.id.hp_rb_fixation);
+            rgFixation.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+                public void onCheckedChanged(RadioGroup rg, int checkedId){
+                    RadioButton checkedButton = (RadioButton) rg.findViewById(checkedId);
+                    p.getHPrimaryImplantData().setFixation(checkedButton.getText().toString());
+                    loadPatientToSharedPref(p, true);
+                }
+            });
 
             //Zementiertechnik =======================================================================================================
+
+            RadioGroup rgZementtechnik = (RadioGroup) myView.findViewById(R.id.hp_rb_zementiertechnik);
+            rgZementtechnik.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+                public void onCheckedChanged(RadioGroup rg, int checkedId){
+                    RadioButton checkedButton = (RadioButton) rg.findViewById(checkedId);
+                    int zementTechnikId;
+                    if(checkedButton.getText().toString().equals("erste Generation")){
+                        zementTechnikId = 1;
+                    } else if(checkedButton.getText().toString().equals("zweite Generation")){
+                        zementTechnikId = 2;
+                    } else {
+                        zementTechnikId = 3;
+                    }
+                    p.getHPrimaryImplantData().setCementingType(zementTechnikId);
+                    loadPatientToSharedPref(p, true);
+                }
+            });
 
             final ImageButton buttonInformation = (ImageButton) myView.findViewById(R.id.hp_ib_cement_info);
             final LinearLayout layoutInformation = (LinearLayout) myView.findViewById(R.id.hp_layout_infoCement);
@@ -358,6 +381,24 @@ public class HpActivity extends Fragment implements View.OnClickListener {
 
         }
 
+        if (layoutId == layouts.getResourceId(hpLayoutFinished, 5)) {
+            ImageButton bUpload = (ImageButton) myView.findViewById(R.id.hp_uploadButton);
+
+            bUpload.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    XmlBuilder xmlBuilder = XmlBuilder.getInstance();       // get instance from XmlBuilder
+                    xmlBuilder.loadXmlTemplate();                           // load the Xml Template for uploading the data
+//                    try {
+//                        xmlBuilder.loadAllDataIntoXml(p);                       // fill the Xml Template with data
+//                    } catch (IllegalAccessException e) {
+//                        e.printStackTrace();
+//                    }
+                    ServerHelpService.initRequestQueue();
+                    ServerHelpService.loadIntoServer();
+                }
+            });
+        }
         return myView;
     }
 
@@ -545,6 +586,8 @@ public class HpActivity extends Fragment implements View.OnClickListener {
 
     private void fillOperationData2(){
         RadioGroup rgAdditionalInterventions = myView.findViewById(R.id.hp_rg_addInterventions);
+        RadioGroup rgZementierTechnik = myView.findViewById(R.id.hp_rb_zementiertechnik);
+        RadioGroup rgFixation = myView.findViewById(R.id.hp_rb_fixation);
 
         for(int i = 0; i < rgAdditionalInterventions.getChildCount(); i++){
             CheckBox box = (CheckBox) rgAdditionalInterventions.getChildAt(i);
@@ -554,6 +597,29 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                 if(box.getText().toString().equals(p.getHPrimaryImplantData().getAdditionalInterventions(j))){
                     box.setChecked(true);
                 }
+            }
+        }
+
+        for (int i = 0; i < rgZementierTechnik.getChildCount(); i++){
+            RadioButton button = (RadioButton) rgZementierTechnik.getChildAt(i);
+            String buttonLabel = "";
+            if(p.getHPrimaryImplantData().getCementingType() == 1){
+                buttonLabel = "erste Generation";
+            } else if (p.getHPrimaryImplantData().getCementingType() == 2){
+                buttonLabel = "zweite Generation";
+            } else if (p.getHPrimaryImplantData().getCementingType() == 3){
+                buttonLabel = "dritte Generation";
+            }
+
+            if(button.getText().toString().equals(buttonLabel)){
+                button.setChecked(true);
+            }
+        }
+
+        for (int i = 0; i < rgFixation.getChildCount(); i++){
+            RadioButton button = (RadioButton) rgFixation.getChildAt(i);
+            if(button.getText().toString().equals(p.getHPrimaryImplantData().getFixation())){
+                button.setChecked(true);
             }
         }
     }
@@ -588,11 +654,11 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         }
         birthdate.setText(p.getBirthdate());
         ahv.setText(p.getAhvId());
-        birthPlace.setText(p.getBirthPlace());
+        birthPlace.setText(p.getCityofbirth());
         birthCountry.setText(p.getBirthCountry());
         weight.setText(p.getWeightInKg() + " kg");
         height.setText(p.getHeightInCm() + " cm");
-        asa.setText("ASA: " + p.getAsa());
+        asa.setText("ASA: " + p.getHPrimaryImplantData().getMORBIDITY_STATE());
         surgeryDate.setText(p.getSurgeryDate());
         firstSurgeon.setText(p.getFirstSurgeon());
         secondSurgeon.setText(p.getSecondSurgeon());

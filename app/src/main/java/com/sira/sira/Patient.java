@@ -9,38 +9,44 @@ import android.databinding.BaseObservable;
 public class Patient extends BaseObservable{
 
     private int patId;
-    private String firstName;
-    private String secondName;
+    private String firstname;
+    private String secondname;
     private String gender;
-    private String birthdate;
-    private String ahvId;
-    private String birthName;
-    private String birthPlace;
-    private String birthCountry;
+    private String dob;
+    private String ssn;
+    private String familynameatbirth;
+    private String cityofbirth;
+    private String countryofbirth;
     private int heightInCm;
     private int weightInKg;
-    private boolean heightWeightUnknown = false;
     private boolean isFemale = false;
     private HPrimaryImplantData hprimImplantData;
-    private int asa;
+    //private int asa;
     private String surgeryDate;
     private String firstSurgeon;
     private String secondSurgeon;
+    private String language = "de";
+    private int createdBy = 1;
 
-    public Patient(int patId, String firstName, String secondName, String gender, String birthdate, String ahvId, String birthName, String birthPlace, String birthCountry, int heightInCm, int weightInKg, boolean heightWeightUnknown, int asa, String surgeryDate, String firstSurgeon, String secondSurgeon) {
+    public Patient(int patId, String firstName, String secondName, String gender, String birthdate, String ahvId, String birthName, String birthPlace, String birthCountry, int heightInCm, int weightInKg, int asa, String surgeryDate, String firstSurgeon, String secondSurgeon) {
+
+        this.hprimImplantData = new HPrimaryImplantData();
+
         this.patId = patId;
-        this.firstName = firstName;
-        this.secondName = secondName;
+        this.firstname = firstName;
+        this.secondname = secondName;
         this.gender = gender;
-        this.birthdate = birthdate;
-        this.ahvId = ahvId;
-        this.birthName = birthName;
-        this.birthPlace = birthPlace;
-        this.birthCountry = birthCountry;
-        this.heightInCm = heightInCm;
-        this.weightInKg = weightInKg;
-        this.heightWeightUnknown = heightWeightUnknown;
-        this.asa = asa;
+        this.dob = birthdate;
+        this.ssn = ahvId;
+        this.familynameatbirth = birthName;
+        this.cityofbirth = birthPlace;
+        this.countryofbirth = birthCountry;
+//        this.heightInCm = heightInCm;
+        this.hprimImplantData.setHEIGHT(heightInCm);
+//        this.weightInKg = weightInKg;
+        this.hprimImplantData.setWEIGHT(weightInKg);
+        this.hprimImplantData.setMORBIDITY_STATE(asa);
+        //this.asa = asa;
         this.surgeryDate = surgeryDate;
         this.firstSurgeon = firstSurgeon;
         this.secondSurgeon = secondSurgeon;
@@ -48,8 +54,10 @@ public class Patient extends BaseObservable{
         if(gender.equals("f")){
             isFemale = true;
         }
+    }
 
-        this.hprimImplantData = new HPrimaryImplantData();
+    public Patient(){
+
     }
 
     public int getPatId() {
@@ -61,19 +69,19 @@ public class Patient extends BaseObservable{
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstname;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstname = firstName;
     }
 
     public String getSecondName() {
-        return secondName;
+        return secondname;
     }
 
     public void setSecondName(String secondName) {
-        this.secondName = secondName;
+        this.secondname = secondName;
     }
 
     public String getGender() {
@@ -85,44 +93,43 @@ public class Patient extends BaseObservable{
     }
 
     public String getBirthdate() {
-        return birthdate;
+        return dob;
     }
 
     public void setBirthdate(String birthdate) {
-        this.birthdate = birthdate;
+        this.dob = birthdate;
     }
 
     public String getAhvId() {
-        return ahvId;
+        return ssn;
     }
 
     public void setAhvId(String ahvId) {
-        this.ahvId = ahvId;
+        this.ssn = ahvId;
     }
 
     public String getBirthName() {
-        return birthName;
+        return familynameatbirth;
     }
 
     public void setBirthName(String birthName) {
-        this.birthName = birthName;
+        this.familynameatbirth = birthName;
     }
 
-
-    public String getBirthPlace() {
-        return birthPlace;
+    public String getCityofbirth() {
+        return cityofbirth;
     }
 
-    public void setBirthPlace(String birthPlace) {
-        this.birthPlace = birthPlace;
+    public void setCityofbirth(String cityofbirth) {
+        this.cityofbirth = cityofbirth;
     }
 
     public String getBirthCountry() {
-        return birthCountry;
+        return countryofbirth;
     }
 
     public void setBirthCountry(String birthCountry) {
-        this.birthCountry = birthCountry;
+        this.countryofbirth = birthCountry;
     }
 
     public int getHeightInCm() {
@@ -140,20 +147,6 @@ public class Patient extends BaseObservable{
 
     public void setWeightInKg(int weightInKg) {
         this.weightInKg = weightInKg;
-    }
-
-    public boolean isHeightWeightUnknown() {
-        return heightWeightUnknown;
-    }
-
-    public void setHeightWeightUnknown(boolean heightWeightUnknown) {
-        this.heightWeightUnknown = heightWeightUnknown;
-    }
-
-    public int getAsa(){ return asa; }
-
-    public void setAsa(int asa){
-        this.asa = asa;
     }
 
     public HPrimaryImplantData getHPrimaryImplantData(){
@@ -182,5 +175,21 @@ public class Patient extends BaseObservable{
 
     public void setSecondSurgeon(String secondSurgeon) {
         this.secondSurgeon = secondSurgeon;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public int getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(int createdBy) {
+        this.createdBy = createdBy;
     }
 }
