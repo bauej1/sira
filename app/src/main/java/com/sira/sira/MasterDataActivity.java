@@ -13,6 +13,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.opencsv.CSVReader;
 import java.io.File;
@@ -46,11 +48,12 @@ public class MasterDataActivity extends Fragment{
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent){
                 if (i == EditorInfo.IME_ACTION_DONE) {
-                    isPatIdValid(patId.getText().toString());
-                    p = getPatientData(patId.getText().toString());
-                    patientLoaded = true;
-                    loadPatientToSharedPref(p, patientLoaded);
-                    fillMasterDataFields();
+                    if (isPatIdValid(patId.getText().toString())){
+                        p = getPatientData(patId.getText().toString());
+                        patientLoaded = true;
+                        loadPatientToSharedPref(p, patientLoaded);
+                        fillMasterDataFields();
+                    }
                 }
                 return false;
             }
@@ -61,7 +64,8 @@ public class MasterDataActivity extends Fragment{
 
     private boolean isPatIdValid(String enteredPatId){
         int id = Integer.parseInt(enteredPatId);
-        if(id < 10000){ //Jan --> Maybe check some other constraints and mark the input field red or something like that..
+        if(id < 10001 || id > 10013){
+            Toast.makeText(getContext(), "Bitte geben Sie eine Patientennummer zwischen 10000 und 10013 ein", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

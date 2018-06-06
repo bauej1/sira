@@ -19,10 +19,15 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+
 import com.google.gson.Gson;
 import com.google.zxing.integration.android.IntentIntegrator;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -382,7 +387,9 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         }
 
         if (layoutId == layouts.getResourceId(hpLayoutFinished, 5)) {
-            ImageButton bUpload = (ImageButton) myView.findViewById(R.id.hp_uploadButton);
+            final ImageButton bUpload = (ImageButton) myView.findViewById(R.id.hp_uploadButton);
+            final ProgressBar progressBar = (ProgressBar) myView.findViewById(R.id.hp_progressBar);
+            final TextView infoUploadLabel = (TextView) myView.findViewById(R.id.hp_tv_upload);
 
             bUpload.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -396,6 +403,11 @@ public class HpActivity extends Fragment implements View.OnClickListener {
 //                    }
                     ServerHelpService.initRequestQueue();
                     ServerHelpService.loadIntoServer();
+
+                    progressBar.setVisibility(View.VISIBLE);
+                    bUpload.setVisibility(View.INVISIBLE);
+                    infoUploadLabel.setVisibility(View.INVISIBLE);
+
                 }
             });
         }
