@@ -408,19 +408,20 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                     ServerHelpService.loadIntoServer(new VolleyCallback() {
                         @Override
                         public void onSuccessResponse(String result) {
-                            progressBar.setVisibility(View.INVISIBLE);
-                            responseImage.setVisibility(View.VISIBLE);
-                            responseImage.setImageResource(R.drawable.ic_check_circle_white_100dp);
-                            responseText.setText(R.string.uploadSuccessful);
+
+                            if(hasXmlValidData(result)){
+                                progressBar.setVisibility(View.INVISIBLE);
+                                responseImage.setVisibility(View.VISIBLE);
+                                responseImage.setImageResource(R.drawable.ic_check_circle_white_100dp);
+                                responseText.setText(R.string.uploadSuccessful);
+                            } else {
+                                progressBar.setVisibility(View.INVISIBLE);
+                                responseImage.setVisibility(View.VISIBLE);
+                                responseImage.setImageResource(R.drawable.ic_highlight_off_white_100dp);
+                                responseText.setText(R.string.uploadNotSuccessful);
+                            }
                         }
 
-                        @Override
-                        public void onErrorResponse(String error) {
-                            progressBar.setVisibility(View.INVISIBLE);
-                            responseImage.setVisibility(View.VISIBLE);
-                            responseImage.setImageResource(R.drawable.ic_highlight_off_white_100dp);
-                            responseText.setText(R.string.uploadNotSuccessful);
-                        }
                     });
 
                     progressBar.setVisibility(View.VISIBLE);
@@ -431,6 +432,20 @@ public class HpActivity extends Fragment implements View.OnClickListener {
             });
         }
         return myView;
+    }
+
+    /**
+     * This method checks if the data in the uploading xml file is valid or not.
+     *
+     * @param result - the result answer from the Server
+     * @return true if the XML file is valid, false if not
+     */
+    public boolean hasXmlValidData(String result){
+        if(result.contains("<haserrors>true</haserrors>")){
+            return false;
+        } else {
+            return true;
+        }
     }
 
     @Override

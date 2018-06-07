@@ -66,7 +66,6 @@ public class ServerHelpService {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d("Server Error", "error: " + error.toString());
-                        callback.onErrorResponse(error.toString());
                     }
                 })  {
             @Override
