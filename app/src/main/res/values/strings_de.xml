@@ -157,6 +157,6 @@
     <string name="m">m</string>
     <string name="f">f</string>
     <string name="upload">Bitte klicken Sie auf den Button, um Ihre Daten auf den Server hochzuladen</string>
-    <string name="uploadSuccessful">Upload successful!</string>
-    <string name="uploadNotSuccessful">Upload not successful, please try again!</string>
+    <string name="uploadSuccessful">Upload erfolgreich!</string>
+    <string name="uploadNotSuccessful">Upload fehlgeschlagen, bitte versuchen Sie es erneut!</string>
 </resources>

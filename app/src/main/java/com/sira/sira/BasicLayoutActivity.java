@@ -147,8 +147,8 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         com.google.zxing.integration.android.IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        TextView scanContent = (TextView) findViewById(R.id.scan_content);
-        ArrayList<String> scanArray = new ArrayList<>();
+
+        final ArrayList<String> scanArray = new ArrayList<>();
 
         if (result != null) {
             if (result.getContents() == null) {
@@ -158,12 +158,37 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
                 //String scannedContent = result.getContents();
                 scannedContentFull = result.toString();
                 scannedContentNumber = result.getContents();
-                scanArray.add(scannedContentFull);
+                //scanArray.add(scannedContentFull);
                 //scanContent.setText("Gescannter Barcode: "+ scannedContentFull);
-                for (String el : scanArray) {
-                    scanContent.setText(scanContent.getText() + System.lineSeparator() + el);
-                }
-                dialogSaveScan();
+
+                //dialogSaveScan();
+                android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+                String message = getResources().getString(R.string.dialog_barcodeScan);
+                builder.setMessage(message + "\n\n" + scannedContentNumber);
+                builder.setPositiveButton(R.string.speichern, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        TextView scanContent = (TextView) findViewById(R.id.scan_content);
+                        scanArray.add(scannedContentFull);
+
+                        for (String el : scanArray) {
+                            scanContent.setText(scanContent.getText() + System.lineSeparator() + el);
+                        }
+                    }
+                });
+
+                builder.setNegativeButton(R.string.abbrechen, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //scanArray.remove(scanArray.size() - 1);
+                    }
+                });
+
+                android.support.v7.app.AlertDialog dialog = builder.create();
+                dialog.show();
+
+                Button negativeButton = dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE);
+                negativeButton.setTextColor(Color.parseColor("#838182"));
             }
         } else {
             // This is important, otherwise the result will not be passed to the fragment
@@ -171,29 +196,29 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
         }
     }
 
-    public void dialogSaveScan() {
-        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
-        String message = getResources().getString(R.string.dialog_barcodeScan);
-        builder.setMessage(message + "\n\n" + scannedContentNumber);
-        builder.setPositiveButton(R.string.speichern, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-            }
-        });
-
-        builder.setNegativeButton(R.string.abbrechen, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-            }
-        });
-
-        android.support.v7.app.AlertDialog dialog = builder.create();
-        dialog.show();
-
-        Button negativeButton = dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE);
-        negativeButton.setTextColor(Color.parseColor("#838182"));
-    }
+//    public void dialogSaveScan() {
+//        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+//        String message = getResources().getString(R.string.dialog_barcodeScan);
+//        builder.setMessage(message + "\n\n" + scannedContentNumber);
+//        builder.setPositiveButton(R.string.speichern, new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                return;
+//            }
+//        });
+//
+//        builder.setNegativeButton(R.string.abbrechen, new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//
+//            }
+//        });
+//
+//        android.support.v7.app.AlertDialog dialog = builder.create();
+//        dialog.show();
+//
+//        Button negativeButton = dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE);
+//        negativeButton.setTextColor(Color.parseColor("#838182"));
+//    }
 }
 
