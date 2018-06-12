@@ -24,12 +24,8 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-
 import com.google.gson.Gson;
 import com.google.zxing.integration.android.IntentIntegrator;
-
-import org.w3c.dom.Text;
-
 
 /**
  * Created by Jan on 03/04/2018.
@@ -40,10 +36,10 @@ public class HpActivity extends Fragment implements View.OnClickListener {
     /**
      * All the ID Constants are used for static referencing to the layouts from the R.array.hiplayouts.
      */
-    private static final int masterdataID = 2131427381;
-    private static final int aufnahme2ID = 2131427374;
-    private static final int finishedID = 2131427375;
-    private static final int op1ID = 2131427376;
+    private static final int masterdataID = 2131427381;     //HINT! THESE NUMBERS ARE MEMORY LOCATIONS IN THE TABLET.
+    private static final int aufnahme2ID = 2131427374;      //      THOSE LOCATIONS CAN CHANGE WHEN THE APPLICATION IS DOWNLOADED TO ANOTHER
+    private static final int finishedID = 2131427375;       //      TABLET. THERE IS A VARIABLE WHICH IS LOGGED CALLED "layoutId".
+    private static final int op1ID = 2131427376;            //      CHECK THIS VARIABLE IN LOGCAT TO ADAPT THESE NUMBERS
     private static final int op2ID = 2131427377;
     /**
      * ===============================================================================================

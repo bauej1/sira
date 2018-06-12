@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
-
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -35,7 +34,6 @@ public class ServerConnector extends AsyncTask<Context, Void, Long>{
     public String token = null;
     public boolean saveInc = true;
     public boolean autoSubmit = true;
-
 
     private RequestQueue requestQueue;
 
