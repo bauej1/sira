@@ -31,8 +31,12 @@ public class ServerHelpService {
     /**
      * Reassign the requestQueue from Volley
      */
-    public static void initRequestQueue(){
+    public static boolean initRequestQueue(){
+        if(context == null){
+            return false;
+        }
         requestQueue = Volley.newRequestQueue(context);
+        return true;
     }
 
     /**

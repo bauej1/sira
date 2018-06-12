@@ -159,4 +159,5 @@
     <string name="upload">Bitte klicken Sie auf den Button, um Ihre Daten auf den Server hochzuladen</string>
     <string name="uploadSuccessful">Upload successful!</string>
     <string name="uploadNotSuccessful">Upload not successful, please try again!</string>
+    <string name="uploadNotSuccessfulConnection">Upload not successful due to connection problems!</string>
 </resources>

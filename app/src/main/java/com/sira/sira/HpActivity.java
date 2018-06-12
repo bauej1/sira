@@ -404,30 +404,33 @@ public class HpActivity extends Fragment implements View.OnClickListener {
 //                    } catch (IllegalAccessException e) {
 //                        e.printStackTrace();
 //                    }
-                    ServerHelpService.initRequestQueue();
-                    ServerHelpService.loadIntoServer(new VolleyCallback() {
-                        @Override
-                        public void onSuccessResponse(String result) {
+                    if(ServerHelpService.initRequestQueue()){
+                        ServerHelpService.loadIntoServer(new VolleyCallback() {
+                            @Override
+                            public void onSuccessResponse(String result) {
 
-                            if(hasXmlValidData(result)){
-                                progressBar.setVisibility(View.INVISIBLE);
-                                responseImage.setVisibility(View.VISIBLE);
-                                responseImage.setImageResource(R.drawable.ic_check_circle_white_100dp);
-                                responseText.setText(R.string.uploadSuccessful);
-                            } else {
-                                progressBar.setVisibility(View.INVISIBLE);
-                                responseImage.setVisibility(View.VISIBLE);
-                                responseImage.setImageResource(R.drawable.ic_highlight_off_white_100dp);
-                                responseText.setText(R.string.uploadNotSuccessful);
+                                if(hasXmlValidData(result)){
+                                    progressBar.setVisibility(View.INVISIBLE);
+                                    responseImage.setVisibility(View.VISIBLE);
+                                    responseImage.setImageResource(R.drawable.ic_check_circle_white_100dp);
+                                    responseText.setText(R.string.uploadSuccessful);
+                                } else {
+                                    progressBar.setVisibility(View.INVISIBLE);
+                                    responseImage.setVisibility(View.VISIBLE);
+                                    responseImage.setImageResource(R.drawable.ic_highlight_off_white_100dp);
+                                    responseText.setText(R.string.uploadNotSuccessful);
+                                }
+                                progressBar.setVisibility(View.VISIBLE);
+                                bUpload.setVisibility(View.INVISIBLE);
+                                infoUploadLabel.setVisibility(View.INVISIBLE);
                             }
-                        }
-
-                    });
-
-                    progressBar.setVisibility(View.VISIBLE);
-                    bUpload.setVisibility(View.INVISIBLE);
-                    infoUploadLabel.setVisibility(View.INVISIBLE);
-
+                        });
+                    } else {
+                        progressBar.setVisibility(View.INVISIBLE);
+                        responseImage.setVisibility(View.VISIBLE);
+                        responseImage.setImageResource(R.drawable.ic_highlight_off_white_100dp);
+                        responseText.setText(R.string.uploadNotSuccessfulConnection);
+                    }
                 }
             });
         }
