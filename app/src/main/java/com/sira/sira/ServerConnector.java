@@ -4,10 +4,12 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
-
+import android.widget.Toast;
+import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
@@ -32,7 +34,6 @@ public class ServerConnector extends AsyncTask<Context, Void, Long>{
     public String token = null;
     public boolean saveInc = true;
     public boolean autoSubmit = true;
-
 
     private RequestQueue requestQueue;
 
@@ -67,7 +68,12 @@ public class ServerConnector extends AsyncTask<Context, Void, Long>{
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("Server Error", error.toString());
+                        if(error instanceof NoConnectionError){
+                            Toast.makeText(context, "No Connection available to SIRIS Server! [NOCONNECTION]", Toast.LENGTH_LONG).show();
+                        }
+                        if(error instanceof TimeoutError){
+                            Toast.makeText(context, "Timeout when connecting to SIRIS Server! [TIMEOUT]", Toast.LENGTH_LONG).show();
+                        }
                     }
                 });
 
