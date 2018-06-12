@@ -159,5 +159,5 @@
     <string name="upload">Bitte klicken Sie auf den Button, um Ihre Daten auf den Server hochzuladen</string>
     <string name="uploadSuccessful">Upload erfolgreich!</string>
     <string name="uploadNotSuccessful">Upload fehlgeschlagen, bitte versuchen Sie es erneut!</string>
-    <string name="uploadNotSuccessfulConnection">Upload not successful due to connection problems!</string>
+    <string name="uploadNotSuccessfulConnection">Upload fehlgeschlagen aufgrund Netzwerkproblemen!</string>
 </resources>
