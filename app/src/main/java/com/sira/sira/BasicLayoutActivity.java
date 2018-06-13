@@ -195,30 +195,5 @@ public class BasicLayoutActivity extends AppCompatActivity implements GestureDet
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
-
-//    public void dialogSaveScan() {
-//        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
-//        String message = getResources().getString(R.string.dialog_barcodeScan);
-//        builder.setMessage(message + "\n\n" + scannedContentNumber);
-//        builder.setPositiveButton(R.string.speichern, new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                return;
-//            }
-//        });
-//
-//        builder.setNegativeButton(R.string.abbrechen, new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//
-//            }
-//        });
-//
-//        android.support.v7.app.AlertDialog dialog = builder.create();
-//        dialog.show();
-//
-//        Button negativeButton = dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE);
-//        negativeButton.setTextColor(Color.parseColor("#838182"));
-//    }
 }
 

@@ -139,13 +139,6 @@ public class HPrimaryImplantData {
         this.cementingType = cementingType;
     }
 
-//    public boolean isHeightWeightUnknown() {
-//        return HEIGHT_WEIGHT_UNKNOWN;
-//    }
-//
-//    public void setHeightWeightUnknown(boolean heightWeightUnknown) {
-//        this.HEIGHT_WEIGHT_UNKNOWN = heightWeightUnknown;
-//    }
     public int getHEIGHT() {
         return HEIGHT;
     }

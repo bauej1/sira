@@ -62,6 +62,11 @@ public class MasterDataActivity extends Fragment{
         return myView;
     }
 
+    /**
+     * This method checks whether the inserted pid is valid or not
+     * @param enteredPatId the entered pid
+     * @return returns true if pid is correct, returns false and a message if incorrect
+     */
     private boolean isPatIdValid(String enteredPatId){
         int id = Integer.parseInt(enteredPatId);
         if(id < 10001 || id > 10013){

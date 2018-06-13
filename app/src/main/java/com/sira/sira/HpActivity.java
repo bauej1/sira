@@ -456,6 +456,11 @@ public class HpActivity extends Fragment implements View.OnClickListener {
     public void onClick(View myView) {
     }
 
+    /**
+     * This method creates a dialogBox if a specific radioButton is selected
+     * @param title title of the dialogBox
+     * @param radioButton1 the selected radioButton
+     */
     public void createDialogBoxRB(String title, RadioButton radioButton1) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(title);
@@ -491,7 +496,11 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         negativeButton.setTextColor(Color.parseColor("#838182"));
     }
 
-
+    /**
+     * This method creates a dialogBox if a specific comboBox is selected
+     * @param title title of the dialogBox
+     * @param checkBox1 the selected checkBox
+     */
     public void createDialogBoxCB(String title, final CheckBox checkBox1) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(title);
@@ -602,6 +611,9 @@ public class HpActivity extends Fragment implements View.OnClickListener {
 
     }
 
+    /**
+     * This method fills data from a patient object in the layout for Operation1.
+     */
     private void fillOperationData1(){
         RadioGroup rgIntervention = myView.findViewById(R.id.hp_rg_eingriff);
         RadioGroup rgAccess = myView.findViewById(R.id.hp_rg_access);
@@ -629,6 +641,9 @@ public class HpActivity extends Fragment implements View.OnClickListener {
         }
     }
 
+    /**
+     * This method fills data from a patient object in the layout for Operation2.
+     */
     private void fillOperationData2(){
         RadioGroup rgAdditionalInterventions = myView.findViewById(R.id.hp_rg_addInterventions);
         RadioGroup rgZementierTechnik = myView.findViewById(R.id.hp_rb_zementiertechnik);
