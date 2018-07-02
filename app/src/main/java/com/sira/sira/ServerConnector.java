@@ -44,7 +44,7 @@ public class ServerConnector extends AsyncTask<Context, Void, Long>{
      * @param context - the App Context
      * @throws JSONException
      */
-    public void loginToServer(final Context context) throws JSONException {
+    private void loginToServer(final Context context) throws JSONException {
 
         JSONObject credentials = getCredentials();
         requestQueue = Volley.newRequestQueue(context);
@@ -58,7 +58,7 @@ public class ServerConnector extends AsyncTask<Context, Void, Long>{
                     public void onResponse(JSONObject response) {
                         try {
                             token = response.getString("token");
-                            Log.d("token:", "token: " + token.toString());
+                            Log.d("token:", "token: " + token);
                             ServerHelpService.setTokenAndContext(token, context);
                         } catch (JSONException e) {
                             e.printStackTrace();

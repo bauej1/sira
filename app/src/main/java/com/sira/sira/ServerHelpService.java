@@ -27,6 +27,7 @@ public class ServerHelpService {
     public static boolean autoSubmit = false;
     public static RequestQueue requestQueue;
     public static Context context;
+    private static Patient patient;
 
     /**
      * Reassign the requestQueue from Volley
@@ -53,8 +54,9 @@ public class ServerHelpService {
      * Concat the uploadUrl with important parameters like saveinc and autosubmit.
      * Loads the .xml file to the SIRIS server.
      */
-    public static void loadIntoServer(final VolleyCallback callback){
+    public static void loadIntoServer(Patient p, final VolleyCallback callback){
         uploadUrl = uploadUrl + "token="+token+"&saveinc="+saveInc+"&autosubmit="+autoSubmit;
+        patient = p;
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.PUT,
@@ -62,7 +64,7 @@ public class ServerHelpService {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("Response from Server", "response: " + response.toString());
+                        Log.d("Response from Server", "response: " + response);
                         callback.onSuccessResponse(response);
                     }
                 },
@@ -101,7 +103,28 @@ public class ServerHelpService {
      * @return File - the .xml File
      */
     private static File getXmlToUpload(){
-        File file = new File(Environment.getExternalStorageDirectory() + "/Documents/siris.xml");
+        File file = null;
+        int patientId = patient.getPatId();
+
+        Log.d("patientId: ", patientId + "");
+
+        switch(patientId){
+            case 10006:
+                file = new File(Environment.getExternalStorageDirectory() + "/Documents/siris_1.xml");
+                break;
+            case 10007:
+                file = new File(Environment.getExternalStorageDirectory() + "/Documents/siris_2.xml");
+                break;
+            case 10008:
+                file = new File(Environment.getExternalStorageDirectory() + "/Documents/siris_3.xml");
+                break;
+            case 10009:
+                file = new File(Environment.getExternalStorageDirectory() + "/Documents/siris_4.xml");
+                break;
+            case 10010:
+                file = new File(Environment.getExternalStorageDirectory() + "/Documents/siris_5.xml");
+                break;
+        }
         return file;
     }
 }

@@ -69,8 +69,8 @@ public class MasterDataActivity extends Fragment{
      */
     private boolean isPatIdValid(String enteredPatId){
         int id = Integer.parseInt(enteredPatId);
-        if(id < 10001 || id > 10013){
-            Toast.makeText(getContext(), "Bitte geben Sie eine Patientennummer zwischen 10001 und 10013 ein", Toast.LENGTH_SHORT).show();
+        if(id < 10006 || id > 10010){
+            Toast.makeText(getContext(), "Bitte geben Sie eine Patientennummer zwischen 10006 und 10010 ein", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

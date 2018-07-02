@@ -393,15 +393,19 @@ public class HpActivity extends Fragment implements View.OnClickListener {
             bUpload.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    XmlBuilder xmlBuilder = XmlBuilder.getInstance();       // get instance from XmlBuilder
-                    xmlBuilder.loadXmlTemplate();                           // load the Xml Template for uploading the data
+                    //XmlBuilder xmlBuilder = XmlBuilder.getInstance();       // get instance from XmlBuilder
+                    //xmlBuilder.loadXmlTemplate();                           // load the Xml Template for uploading the data
 //                    try {
 //                        xmlBuilder.loadAllDataIntoXml(p);                       // fill the Xml Template with data
 //                    } catch (IllegalAccessException e) {
 //                        e.printStackTrace();
 //                    }
+                    progressBar.setVisibility(View.VISIBLE);
+                    bUpload.setVisibility(View.INVISIBLE);
+                    infoUploadLabel.setVisibility(View.INVISIBLE);
+
                     if(ServerHelpService.initRequestQueue()){
-                        ServerHelpService.loadIntoServer(new VolleyCallback() {
+                        ServerHelpService.loadIntoServer(p, new VolleyCallback() {
                             @Override
                             public void onSuccessResponse(String result) {
 
@@ -416,9 +420,6 @@ public class HpActivity extends Fragment implements View.OnClickListener {
                                     responseImage.setImageResource(R.drawable.ic_highlight_off_white_100dp);
                                     responseText.setText(R.string.uploadNotSuccessful);
                                 }
-                                progressBar.setVisibility(View.VISIBLE);
-                                bUpload.setVisibility(View.INVISIBLE);
-                                infoUploadLabel.setVisibility(View.INVISIBLE);
                             }
                         });
                     } else {
